@@ -6,14 +6,14 @@ import Main from "./pages/main";
 
 function App() {
   return (
-    <div className="body-container">
+    <>
       <Navigation />
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
