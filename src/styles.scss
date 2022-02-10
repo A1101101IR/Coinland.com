@@ -14,19 +14,35 @@ $yellowColor: #ffe249;
 // Mixins
 //Button class
 @mixin buttonClass {
-	width: 175px;
-	height: 35px;
-	border-radius: 30px;
+	padding: 0 2.5rem;
+	height: 45px;
+	border-radius: 40px;
 	border: none;
 	background: $buttonColor;
 	opacity: 0.8;
 	color: white;
 	font-size: 1rem;
 	position: relative;
-	transition: all 0.15s ease;
+	transition: all 0.2s ease;
 	&:hover {
-		margin-top: -2px;
 		background-color: $buttonColor;
+		opacity: 1;
+	}
+}
+
+//not important button
+@mixin buttonOutline {
+	padding: 0 2.5rem;
+	height: 45px;
+	border-radius: 40px;
+	border: 2px solid $buttonColor;
+	opacity: 0.8;
+	background-color: white;
+	color: $buttonColor;
+	font-size: 1rem;
+	position: relative;
+	transition: all 0.2s ease;
+	&:hover {
 		opacity: 1;
 	}
 }
