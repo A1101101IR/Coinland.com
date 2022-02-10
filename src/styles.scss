@@ -11,7 +11,25 @@ $yellowColor: #ffe249;
 
 //Font size
 
-//classes / mixins
+// Mixins
+//Button class
+@mixin buttonClass {
+	width: 175px;
+	height: 35px;
+	border-radius: 30px;
+	border: none;
+	background: $buttonColor;
+	opacity: 0.8;
+	color: white;
+	font-size: 1rem;
+	position: relative;
+	transition: all 0.15s ease;
+	&:hover {
+		margin-top: -2px;
+		background-color: $buttonColor;
+		opacity: 1;
+	}
+}
 
 //breakpoints
 $small: 768px;
