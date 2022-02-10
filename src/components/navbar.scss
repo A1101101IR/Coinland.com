@@ -4,6 +4,9 @@
 	display: flex;
 	justify-content: space-between;
 	margin-top: 20px;
+	align-items: center;
+	font-family: $headerFont;
+	font-size: $subtitlesFont;
 	.nav-left {
 		width: 25%;
 		display: flex;
@@ -30,7 +33,7 @@
 .link {
 	text-decoration: none;
 	color: black;
-	font-size: 22px;
+	font-size: $subtitlesFont;
 	padding: 0px 30px;
 }
 .toggle-nav {
