@@ -30,8 +30,10 @@ $large: 1200px;
 	opacity: 0.8;
 	color: white;
 	font-size: 1rem;
-	position: relative;
 	transition: all 0.2s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	&:hover {
 		background-color: $buttonColor;
 		opacity: 1;
@@ -48,8 +50,10 @@ $large: 1200px;
 	background-color: white;
 	color: $buttonColor;
 	font-size: 1rem;
-	position: relative;
 	transition: all 0.2s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	&:hover {
 		opacity: 1;
 	}
