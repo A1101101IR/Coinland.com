@@ -24,6 +24,7 @@
     justify-content: end;
     .login-btn {
       @include buttonClass;
+      margin-right: 55px;
     }
     .open-btn {
       display: none;
@@ -63,7 +64,7 @@
 }
 
 .close-btn {
-  top: 15px;
+  top: 52px;
   right: 15px;
   position: fixed;
 }
@@ -80,9 +81,13 @@
       display: none;
     }
     .nav-right {
+      .login-btn {
+        @include buttonClass;
+        margin-right: 75px;
+      }
       .open-btn {
         display: flex;
-        top: 15px;
+        top: 52px;
         right: 15px;
         position: fixed;
       }

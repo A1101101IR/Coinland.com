@@ -35,6 +35,9 @@ class Navbar extends React.Component {
               Home
             </Link>
             <Link className="link" to="/about">
+              Product
+            </Link>
+            <Link className="link" to="/about">
               About
             </Link>
             <Link className="link" to="/contact">
@@ -67,6 +70,11 @@ class Navbar extends React.Component {
               <li>
                 <Link onClick={this.handleClose} className="link" to="/">
                   Home
+                </Link>
+              </li>
+              <li>
+                <Link onClick={this.handleClose} className="link" to="/about">
+                  Product
                 </Link>
               </li>
               <li>
