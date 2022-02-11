@@ -1,12 +1,19 @@
+@import "../styles.scss";
 .navbar {
   height: 100px;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+  align-items: center;
+  font-family: $headerFont;
+  font-size: $subtitlesFont;
   .nav-left {
     width: 25%;
     display: flex;
     justify-content: start;
+    .logo {
+      color: rgb(0, 0, 0);
+    }
   }
   .nav-center {
     width: auto;
@@ -15,6 +22,9 @@
     width: 25%;
     display: flex;
     justify-content: end;
+    .login-btn {
+      @include buttonClass;
+    }
     .open-btn {
       display: none;
     }
@@ -23,7 +33,7 @@
 .link {
   text-decoration: none;
   color: black;
-  font-size: 22px;
+  font-size: $subtitlesFont;
   padding: 0px 30px;
 }
 .toggle-nav {
