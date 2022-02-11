@@ -2,15 +2,17 @@
 @import "./styles.scss";
 
 body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .body-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
 a {
-	text-decoration: none;
+  text-decoration: none;
+}
+button {
+  @include buttonClass;
 }

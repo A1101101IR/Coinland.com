@@ -43,9 +43,7 @@ class Navbar extends React.Component {
           </nav>
         )}
         <div className="nav-right">
-          <Link className="login-btn" to="/">
-            Login
-          </Link>
+          <button className="button login-btn">Hello</button>
           {!this.state.open && (
             <img
               className="open-btn"
