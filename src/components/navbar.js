@@ -65,17 +65,17 @@ class Navbar extends React.Component {
             />
             <ul>
               <li>
-                <Link className="link" to="/">
+                <Link onClick={this.handleClose} className="link" to="/">
                   Home
                 </Link>
               </li>
               <li>
-                <Link className="link" to="/about">
+                <Link onClick={this.handleClose} className="link" to="/about">
                   About
                 </Link>
               </li>
               <li>
-                <Link className="link" to="/contact">
+                <Link onClick={this.handleClose} className="link" to="/contact">
                   Contact
                 </Link>
               </li>
