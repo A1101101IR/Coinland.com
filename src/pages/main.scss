@@ -1,0 +1,70 @@
+@import "../styles.scss";
+
+.main__container {
+	display: flex;
+	justify-content: center;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 18%,
+		rgba(19, 252, 255, 0.4472163865546218) 48%,
+		rgba(255, 255, 255, 1) 85%
+	);
+	.header {
+		text-align: center;
+		height: 100vh;
+		max-width: 700px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.blueblob {
+			position: absolute;
+			width: 400px;
+			height: 400px;
+			background-color: #00b6f0;
+			border-radius: 50%;
+			left: -15rem;
+			top: 300px;
+			z-index: 0;
+			@media screen and (max-width: 600px) {
+				width: 250px;
+				height: 250px;
+				left: -8rem;
+				top: 400px;
+			}
+		}
+		.greenblob {
+			position: absolute;
+			width: 430px;
+			height: 400px;
+			background-color: #00f080;
+			border-radius: 50%;
+			right: -15rem;
+			top: 600px;
+			z-index: 0;
+			@media screen and (max-width: 600px) {
+				width: 300px;
+				height: 300px;
+				right: -10rem;
+				top: 600px;
+			}
+		}
+		h1 {
+			margin-top: 6rem;
+			font-family: $headerFont;
+			font-size: 2.8rem;
+			color: $headerColor;
+			letter-spacing: -1px;
+		}
+		p {
+			text-align: center;
+			font-family: $subtitlesFont;
+			color: $subtitleColor;
+			margin: 0 2rem;
+			max-width: 500px;
+			font-size: 1.1rem;
+			font-weight: 400;
+			z-index: 1;
+		}
+	}
+}
