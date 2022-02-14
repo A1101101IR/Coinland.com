@@ -1,4 +1,5 @@
 import "./main.scss"
+import cryptoscreen from "../img/screen.png"
 
 const Main = () => {
 	return (
@@ -12,6 +13,17 @@ const Main = () => {
 					learning it. The time is now.
 				</p>
 				<div className='greenblob'></div>
+				<div className='split'>
+					<div className='active'>
+						<button className='active'>Get started</button>
+					</div>
+					<div className='outline'>
+						<button className='outline'>Try for free</button>
+					</div>
+				</div>
+				<div className='screen'>
+					<img src={cryptoscreen} width='1200' height='600' alt='' />
+				</div>
 			</section>
 		</div>
 	)

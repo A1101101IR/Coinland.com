@@ -34,6 +34,8 @@ $large: 1200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
+
 	&:hover {
 		background-color: $buttonColor;
 		opacity: 1;
@@ -45,7 +47,7 @@ $large: 1200px;
 	padding: 0 2.5rem;
 	height: 45px;
 	border-radius: 40px;
-	border: 2px solid $buttonColor;
+	border: none;
 	opacity: 0.8;
 	background-color: white;
 	color: $buttonColor;
@@ -54,6 +56,7 @@ $large: 1200px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 	&:hover {
 		opacity: 1;
 	}
