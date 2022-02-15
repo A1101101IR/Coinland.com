@@ -1,0 +1,68 @@
+@import "../styles.scss";
+.Pricing {
+  background: #182333;
+  color: white;
+  min-height: 500px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $subtitlesFont;
+  @media screen and (max-width: 950px) {
+    height: 600px;
+  }
+  .pricing-box {
+    width: 1100px;
+    display: flex;
+    justify-content: center;
+    @media screen and (max-width: 950px) {
+      height: 500px;
+      justify-content: space-evenly;
+    }
+    flex-wrap: wrap;
+    .pricing-box-one {
+      height: auto;
+      max-width: 500px;
+      margin: 0px 50px;
+      @media screen and (max-width: 950px) {
+        text-align: center;
+      }
+      h1 {
+        font-size: $bigHeaderSize;
+      }
+      p {
+        font-size: $subtitlesSize;
+      }
+    }
+    .pricing-box-two {
+      height: auto;
+      margin: 0px 50px;
+      @media screen and (max-width: 950px) {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      div {
+        margin-bottom: 22px;
+        max-width: 300px;
+        .price {
+          font-size: $bigHeaderSize;
+          font-weight: bolder;
+          color: $yellowColor;
+        }
+        .month {
+          font-size: 1.6rem;
+
+          button {
+            @include buttonClass;
+          }
+        }
+      }
+    }
+  }
+}
+button {
+  @include buttonClass;
+  opacity: 1;
+}

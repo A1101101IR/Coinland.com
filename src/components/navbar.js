@@ -26,7 +26,7 @@ class Navbar extends React.Component {
       <section className="navbar">
         <div className="nav-left">
           <Link className="logo" to="/">
-            Startup
+            <h2>Coinland</h2>
           </Link>
         </div>
         {!this.state.open && (
