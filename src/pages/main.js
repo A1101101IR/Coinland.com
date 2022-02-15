@@ -1,9 +1,15 @@
+import "./main.scss";
+import cryptoscreen from "../img/screen.png";
+import Header from "../components/header";
+import Footer from "../components/footer";
+
 const Main = () => {
   return (
-    <section className="main">
+    <div className="main__container">
       {/* what about use section for each part of page to simplify html structure?  */}
-      <h1>this is main page</h1>
-    </section>
+      <Header />
+      <Footer />
+    </div>
   );
 };
 

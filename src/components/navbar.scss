@@ -24,7 +24,6 @@
     justify-content: end;
     .login-btn {
       @include buttonClass;
-      margin-right: 55px;
     }
     .open-btn {
       display: none;
@@ -45,6 +44,7 @@
   position: fixed;
   background: rgba(0, 0, 0, 0.9);
   animation: slide-in-fwd-tr 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  z-index: 999;
   ul {
     top: 50%;
     width: 100%;
@@ -64,7 +64,7 @@
 }
 
 .close-btn {
-  top: 52px;
+  top: 15px;
   right: 15px;
   position: fixed;
 }
