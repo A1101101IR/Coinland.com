@@ -12,9 +12,9 @@
     height: 600px;
   }
   .pricing-box {
-    width: 1100px;
+    width: 1000px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     @media screen and (max-width: 950px) {
       height: 500px;
       justify-content: space-evenly;
@@ -22,21 +22,21 @@
     flex-wrap: wrap;
     .pricing-box-one {
       height: auto;
-      max-width: 500px;
-      margin: 0px 50px;
+      max-width: 600px;
       @media screen and (max-width: 950px) {
         text-align: center;
       }
       h1 {
         font-size: $bigHeaderSize;
+        margin-top: 0px;
       }
+
       p {
         font-size: $subtitlesSize;
       }
     }
     .pricing-box-two {
       height: auto;
-      margin: 0px 50px;
       @media screen and (max-width: 950px) {
         text-align: center;
         display: flex;

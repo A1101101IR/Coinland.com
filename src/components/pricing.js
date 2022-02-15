@@ -5,8 +5,10 @@ const Pricing = () => {
         <div className="pricing-box-one">
           <h1>Pricing</h1>
           <p>
-            Most calendars are designed for teams. Slate is designed for
-            freelancers who want a simple way to plan their schedule.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+            similique nam inventore nulla quibusdam doloremque illum ducimus
+            facere, praesentium cum quis rem repellendus fuga esse ad dolore in
+            atque nostrum!
           </p>
         </div>
         <div className="pricing-box-two">
