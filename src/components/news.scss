@@ -1,0 +1,112 @@
+.news {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  .bg {
+    min-height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .news-box {
+    max-width: 1200px;
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    margin: 15px;
+    .news-text-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 500px;
+      @media screen and (max-width: 1130px) {
+        margin-bottom: 50px;
+      }
+      @media screen and (max-width: 640px) {
+        padding: 25px;
+      }
+    }
+    .news-one {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      @media screen and (max-width: 1130px) {
+        justify-content: center;
+      }
+      .img-box {
+        width: 600px;
+        height: 400px;
+        background-image: url(../img/bitcoinnn.jpg);
+        background-size: cover;
+        border-radius: 50px;
+        @media screen and (max-width: 640px) {
+          width: 450px;
+          height: 350px;
+          border-radius: 40px;
+        }
+        @media screen and (max-width: 440px) {
+          width: 350px;
+          height: 250px;
+          border-radius: 30px;
+        }
+      }
+    }
+    .news-two {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      max-width: 1200px;
+      justify-content: space-between;
+
+      @media screen and (max-width: 1130px) {
+        justify-content: center;
+      }
+      .img-box {
+        width: 600px;
+        height: 400px;
+        background-image: url(../img/coinnn.jpg);
+        background-size: cover;
+        border-radius: 50px;
+
+        @media screen and (max-width: 640px) {
+          width: 450px;
+          height: 350px;
+          border-radius: 40px;
+        }
+        @media screen and (max-width: 440px) {
+          width: 350px;
+          height: 250px;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+}
+
+.bg-one {
+  background-image: url(../img/blob-4.svg);
+  background-size: 700px;
+  background-repeat: no-repeat;
+  background-position: right -15% center;
+  @media screen and (max-width: 1130px) {
+    padding-bottom: 100px;
+    background-position: right -200px bottom -100px;
+  }
+  @media screen and (max-width: 640px) {
+    background-size: 500px;
+    background-position: right -200px bottom -80px;
+    padding-bottom: 25px;
+  }
+}
+.bg-two {
+  background-image: url(../img/blob-3.svg);
+  background-size: 700px;
+  background-repeat: no-repeat;
+  background-position: left -15% bottom -50px;
+  @media screen and (max-width: 1130px) {
+    padding-bottom: 100px;
+    background-position: left -200px bottom -60px;
+  }
+}

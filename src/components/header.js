@@ -1,4 +1,5 @@
 import cryptoscreen from "../img/screen.png";
+import Dashboard from "../pages/dash";
 const Header = () => {
   return (
     <section className="header">
@@ -17,9 +18,7 @@ const Header = () => {
           <button className="outline">Try for free</button>
         </div>
       </div>
-      {/* <div className="screen">
-        <img src={cryptoscreen} width="1200" height="600" alt="" />
-      </div> */}
+      <Dashboard />
     </section>
   );
 };

@@ -1,10 +1,13 @@
 .service {
   display: flex;
   justify-content: center;
+
+  /* border-top: 2px solid black; */
+
   background-image: url(../img/blob-2.svg);
   background-repeat: no-repeat;
   background-position: bottom -100px right -200px;
-  padding: 150px 0px;
+  padding: 100px 0px;
   .service-box {
     max-width: 1000px;
     text-align: center;

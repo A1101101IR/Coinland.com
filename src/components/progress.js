@@ -10,7 +10,6 @@ const Progress = () => {
         <div className="progress">
           <div className="progress-bar"></div>
         </div>
-
         <span>
           <button>Get Started for free</button>
         </span>
