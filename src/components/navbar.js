@@ -48,8 +48,11 @@ class Navbar extends React.Component {
 				)}
 				<div className='nav-right'>
 					<Link className='login-btn' to='/'>
-						<img src={metamask} alt='' width={30} /> Connect with
-						MetaMask
+						<div className='metamask-img'>
+							<img src={metamask} alt='' width={30} />{" "}
+						</div>
+
+						<p>MetaMask sign in</p>
 					</Link>
 					{!this.state.open && (
 						<img

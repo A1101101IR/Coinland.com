@@ -25,15 +25,28 @@
 		justify-content: end;
 		.login-btn {
 			@include buttonClass;
-			padding: 0 1.2rem;
+			padding: 0 1rem;
 			letter-spacing: -1px;
 			font-weight: 400;
+			p {
+				@media screen and (max-width: $medium) {
+					display: none;
+				}
+			}
 		}
-		img {
-			height: auto;
-			margin-right: 0.5rem;
+		.metamask-img {
 			animation: wiggle 2.5s infinite;
+			margin-top: 3px;
+			img {
+				height: auto;
+				margin-right: 0.5rem;
+
+				@media screen and (max-width: $medium) {
+					margin-right: 0;
+				}
+			}
 		}
+
 		.open-btn {
 			display: none;
 		}
