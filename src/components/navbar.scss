@@ -49,6 +49,7 @@
 
 		.open-btn {
 			display: none;
+			cursor: pointer;
 		}
 	}
 }
@@ -86,9 +87,10 @@
 }
 
 .close-btn {
-	top: 15px;
+	top: 52px;
 	right: 15px;
 	position: fixed;
+	cursor: pointer;
 }
 .login-btn {
 	margin-right: 55px;
