@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import openbtn from "../img/open-btn.png"
 import closebtn from "../img/close-btn.png"
 import metamask from "../img/metamask.png"
+import logoimage from "../img/logo.png"
 class Navbar extends React.Component {
 	constructor() {
 		super()
@@ -27,7 +28,12 @@ class Navbar extends React.Component {
 			<section className='navbar'>
 				<div className='nav-left'>
 					<Link className='logo' to='/'>
-						<h2>Coinland</h2>
+						<div className='logo__image'>
+							<img src={logoimage} width={40} alt='' />
+						</div>
+						<div>
+							<h2>Coinland.</h2>
+						</div>
 					</Link>
 				</div>
 				{!this.state.open && (
