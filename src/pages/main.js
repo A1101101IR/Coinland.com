@@ -7,7 +7,8 @@ import Pricing from "../components/pricing";
 import Service from "../components/service";
 import Progress from "../components/progress";
 import News from "../components/news";
-/* import TransactionContext from "../context/TransactionContext"; */
+import { TransactionContext } from "../context/TransactionContext";
+
 const Main = () => {
   /* const { value } = useContext(TransactionContext);
   console.log(value); */

@@ -2,13 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
+import { useContext } from "react";
 import { BrowserRouter } from "react-router-dom";
-import TransactionProvider from "./context/TransactionContext";
+import { TransactionProvider } from "./context/TransactionContext";
 ReactDOM.render(
-  <TransactionProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </TransactionProvider>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
