@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import openbtn from "../img/open-btn.png";
 import closebtn from "../img/close-btn.png";
+
 class Navbar extends React.Component {
   constructor() {
     super();
