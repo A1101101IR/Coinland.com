@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 import App from "./App";
-import { useContext } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { TransactionProvider } from "./context/TransactionContext";
+import TransactionProvider from "./contexts/TransactionContext";
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <TransactionProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </TransactionProvider>,
   document.getElementById("root")
 );
