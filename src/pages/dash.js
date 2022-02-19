@@ -17,26 +17,32 @@ const Dashboard = () => {
   };
   return (
     <section className="Dashboard">
-      <h1>Coming soon!</h1>
-      {!currentAccount && (
-        <button onClick={connectWallet}>Connect Wallet</button>
-      )}
-      <div>
-        <div>
-          <input type="text" name="addressTo" onChange={handleChange} />
-          <input
-            type="number"
-            name="amount"
-            value={0.0005}
-            onChange={handleChange}
-          />
-
-          <input type="text" name="keyword" onChange={handleChange} />
-          <input type="text" name="message" onChange={handleChange} />
+      <div className="dash-navbar">
+        <div className="chart-box-sm"></div>
+        <div className="chart-box-sm"></div>
+        <div className="chart-box-sm"></div>
+        <div className="chart-box-sm"></div>
+      </div>
+      <div className="dash-body">
+        <div className="dash-chart"></div>
+        <div className="dash-form-box">
+          <div className="dash-form">
+            <input type="text" name="addressTo" onChange={handleChange} />
+            <input type="number" name="amount" onChange={handleChange} />
+            <input type="text" name="keyword" onChange={handleChange} />
+            <input type="text" name="message" onChange={handleChange} />
+          </div>
+          <div className="dash-form-btn-box">
+            {currentAccount && (
+              <button type="button" onClick={handleSubmit}>
+                Transfer
+              </button>
+            )}
+            {!currentAccount && (
+              <button onClick={connectWallet}>Connect Wallet</button>
+            )}
+          </div>
         </div>
-        <button type="button" onClick={handleSubmit}>
-          Transfer
-        </button>
       </div>
     </section>
   );

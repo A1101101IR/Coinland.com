@@ -17,6 +17,7 @@ const getEthereumContract = () => {
   return TransactionContract;
 };
 
+/* TransactionProvider */
 const TransactionProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [formData, setFormData] = useState({
@@ -26,7 +27,7 @@ const TransactionProvider = ({ children }) => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
-  const [transactionsCount, setTransactionsCount] = useState(
+  const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem("transactionsCount")
   );
   const handleChange = (e, name) => {
@@ -50,13 +51,12 @@ const TransactionProvider = ({ children }) => {
       throw new error("ethereum objects not found!");
     }
   };
-
+  /* send transactions to blockchain, get res, etc.. */
   const sendTransaction = async () => {
     try {
       if (!ethereum) return alert("install Metamask in your browser!");
       const { addressTo, amount, keyword, message } = formData;
       const transactionsContract = getEthereumContract();
-
       const parsedAmount = ethers.utils.parseEther(amount);
       await ethereum.request({
         method: "eth_sendTransaction",
@@ -76,13 +76,14 @@ const TransactionProvider = ({ children }) => {
         keyword
       );
       setIsLoading(true);
-      console.log(`Loading - ${transactionHash.hash}`);
+      /* console.log(`Loading - ${transactionHash.hash}`); */
       await transactionHash.wait();
+      /* console.log(`Success - ${transactionHash.hash}`); */
       setIsLoading(false);
-      console.log(`Success - ${transactionHash.hash}`);
+
       const transactionsCount =
-        await transactionsContract.getTransactionsCount();
-      setTransactionsCount(transactionsCount.toNumber());
+        await transactionsContract.getTransactionCount();
+      setTransactionCount(transactionsCount.toNumber());
     } catch (error) {
       console.log(error);
       throw new Error("ethereum objects not found!");
