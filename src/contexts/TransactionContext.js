@@ -4,44 +4,118 @@ import { contractABI, contractAddress } from "../utils/constans";
 import { useEffect, useState } from "react";
 export const TransactionContext = createContext();
 const { ethereum } = window;
-/* window.ethereum; */
 
 const getEthereumContract = () => {
   const provider = new ethers.providers.Web3Provider(ethereum);
-  const signer = provider.getSinger();
+  /* const provider = new ethers.providers.Web3Provider(window.ethereum); */
+  const signer = provider.getSigner();
   const TransactionContract = new ethers.Contract(
     contractAddress,
     contractABI,
     signer
   );
-  console.log(provider, signer, TransactionContract);
+  return TransactionContract;
 };
 
 const TransactionProvider = ({ children }) => {
-  const [connectedAccount, setConnectedAccount] = useState();
   const [currentAccount, setCurrentAccount] = useState("");
-  const checkWallet = async () => {
-    if (!ethereum) return alert("obs, install metamask!");
-    const accounts = await ethereum.reguest({ method: "eth_accounts" });
-    console.log(accounts);
+  const [formData, setFormData] = useState({
+    addressTo: "",
+    amount: "",
+    keyword: "",
+    message: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [transactionsCount, setTransactionsCount] = useState(
+    localStorage.getItem("transactionsCount")
+  );
+  const handleChange = (e, name) => {
+    setFormData((prevState) => ({ ...prevState, [name]: e.target.value }));
   };
+  /* check if there is a ethereum object in browser */
+  const checkWallet = async () => {
+    try {
+      if (!ethereum)
+        return alert("Alert, you need to install Metamask in your browser!");
+      const accounts = await ethereum.request({ method: "eth_accounts" });
+      if (accounts.length) {
+        setCurrentAccount(accounts[0]);
+        // getAllTransactions();
+      } else {
+        console.log("ethereum objects not found!");
+      }
+      /* console.log(accounts); */
+    } catch (error) {
+      console.log(error);
+      throw new error("ethereum objects not found!");
+    }
+  };
+
+  const sendTransaction = async () => {
+    try {
+      if (!ethereum) return alert("install Metamask in your browser!");
+      const { addressTo, amount, keyword, message } = formData;
+      const transactionsContract = getEthereumContract();
+
+      const parsedAmount = ethers.utils.parseEther(amount);
+      await ethereum.request({
+        method: "eth_sendTransaction",
+        param: [
+          {
+            from: currentAccount,
+            to: addressTo,
+            gas: "0x5208",
+            value: parsedAmount._hex,
+          },
+        ],
+      });
+      const transactionHash = await transactionsContract.addToBlockchain(
+        addressTo,
+        parsedAmount,
+        message,
+        keyword
+      );
+      setIsLoading(true);
+      console.log(`Loading - ${transactionHash.hash}`);
+      await transactionHash.wait();
+      setIsLoading(false);
+      console.log(`Success - ${transactionHash.hash}`);
+      const transactionsCount =
+        await transactionsContract.getTransactionsCount();
+      setTransactionsCount(transactionsCount.toNumber());
+    } catch (error) {
+      console.log(error);
+      throw new Error("ethereum objects not found!");
+    }
+  };
+
+  /* connect wallet if there is a ethereum object in browser */
   const connectWallet = async () => {
     try {
-      if (!ethereum) return alert("obs, install metamask!");
-      const accounts = await ethereum.reguest({
+      if (!ethereum)
+        return alert("Alert, you need to install Metamask in your browser!");
+      const accounts = await ethereum.request({
         method: "eth_requestAccounts",
       });
       setCurrentAccount(accounts[0]);
     } catch (error) {
       console.log(error);
-      throw new error("no eth obj");
+      throw new error("ethereum objects not found!");
     }
   };
   useEffect(() => {
     checkWallet();
   }, []);
   return (
-    <TransactionContext.Provider value={{ connectWallet }}>
+    <TransactionContext.Provider
+      value={{
+        connectWallet,
+        currentAccount,
+        formData,
+        handleChange,
+        sendTransaction,
+      }}
+    >
       {children}
     </TransactionContext.Provider>
   );
