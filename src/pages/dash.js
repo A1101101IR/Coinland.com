@@ -1,5 +1,12 @@
-import { TransactionContext } from "../contexts/TransactionContext";
+import {
+  TransactionContext,
+  TrendingCoins,
+} from "../contexts/TransactionContext";
 import React, { useContext } from "react";
+import { useState, useEffect } from "react";
+import axios, { Axios } from "axios";
+import Coin from "../components/coin";
+
 const Dashboard = () => {
   const {
     connectWallet,
@@ -11,17 +18,38 @@ const Dashboard = () => {
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
     e.preventDefault();
-
     /* if (!addressTo || !amount || !keyword || !message) return; */
     sendTransaction();
   };
+  const [coin, setCoin] = useState();
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20shiba-inu%2C%20binance-usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
+      .then((res) => {
+        console.log(res.data);
+        setCoin(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <section className="Dashboard">
       <div className="dash-navbar">
-        <div className="chart-box-sm"></div>
-        <div className="chart-box-sm"></div>
-        <div className="chart-box-sm"></div>
-        <div className="chart-box-sm"></div>
+        {coin &&
+          coin.slice(0, 4).map((coin) => {
+            return (
+              <Coin
+                key={coin.id}
+                name={coin.name}
+                image={coin.image}
+                symbol={coin.symbol}
+                price={coin.current_price}
+              />
+            );
+          })}
       </div>
       <div className="dash-body">
         <div className="dash-chart"></div>

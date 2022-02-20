@@ -21,10 +21,10 @@ const getEthereumContract = () => {
 const TransactionProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
   const [formData, setFormData] = useState({
-    addressTo: "",
-    amount: "",
-    keyword: "",
-    message: "",
+    addressTo: "0x9E207E9C30d8D18163c35E76FAFCF21a691fCa31",
+    amount: "0.0004",
+    keyword: "test",
+    message: "hello",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [transactionCount, setTransactionCount] = useState(
@@ -76,9 +76,9 @@ const TransactionProvider = ({ children }) => {
         keyword
       );
       setIsLoading(true);
-      /* console.log(`Loading - ${transactionHash.hash}`); */
+      console.log(`Loading - ${transactionHash.hash}`);
       await transactionHash.wait();
-      /* console.log(`Success - ${transactionHash.hash}`); */
+      console.log(`Success - ${transactionHash.hash}`);
       setIsLoading(false);
 
       const transactionsCount =
