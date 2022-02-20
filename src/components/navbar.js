@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import openbtn from "../img/open-btn.png";
 import closebtn from "../img/close-btn.png";
 import metamask from "../img/metamask.png";
 import logoimage from "../img/logo.png";
+
 class Navbar extends React.Component {
   constructor() {
     super();

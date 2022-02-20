@@ -1,4 +1,5 @@
 import "./main.scss";
+import React from "react";
 import cryptoscreen from "../img/screen.png";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -12,7 +13,6 @@ const Main = () => {
     <div className="main__container">
       {/* what about use section for each part of page to simplify html structure?  */}
       <Header />
-
       <News />
       <Progress />
       <Pricing />
@@ -22,7 +22,6 @@ const Main = () => {
         byter section utan att märka det. kanske scroll function!?
       </h1> */}
       <Service />
-
       <Footer />
     </div>
   );
