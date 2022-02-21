@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/navbar";
+import Navbar from "./components/navbar";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Main from "./pages/main";
@@ -7,7 +8,7 @@ import Main from "./pages/main";
 function App() {
   return (
     <>
-      <Navigation />
+      <Navbar />
       <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/about" element={<About />}></Route>
