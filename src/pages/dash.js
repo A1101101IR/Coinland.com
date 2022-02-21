@@ -52,7 +52,13 @@ const Dashboard = () => {
           })}
       </div>
       <div className="dash-body">
-        <div className="dash-chart"></div>
+        <div className="dash-chart">
+          <p>
+            Vi har ett fungerande login via Metamask, jag har jobbat med en
+            smart contract under helgen och den är nästan klart, men än så länge
+            det går inte att genomföra transactions på grund av bugs i coden.
+          </p>
+        </div>
         <div className="dash-form-box">
           <div className="dash-form">
             <select>
