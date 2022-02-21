@@ -55,10 +55,43 @@ const Dashboard = () => {
         <div className="dash-chart"></div>
         <div className="dash-form-box">
           <div className="dash-form">
-            <input type="text" name="addressTo" onChange={handleChange} />
-            <input type="number" name="amount" onChange={handleChange} />
-            <input type="text" name="keyword" onChange={handleChange} />
-            <input type="text" name="message" onChange={handleChange} />
+            <select>
+              <option value="Bitcoin">Bitcoin</option>
+              <option value="Bitcoin">eth</option>
+              <option value="Bitcoin">usd</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Receiver address"
+              name="addressTo"
+              onChange={handleChange}
+            />
+            <input
+              type="number"
+              placeholder="Value"
+              name="amount"
+              onChange={handleChange}
+            />
+            <input
+              type="text"
+              placeholder="Keyword"
+              name="keyword"
+              onChange={handleChange}
+            />
+            {/* <input
+              type="text"
+              className="message-input"
+              placeholder="message"
+              name="message"
+              onChange={handleChange}
+            /> */}
+            <textarea
+              type="text"
+              className="message-input"
+              placeholder="message"
+              name="message"
+              onChange={handleChange}
+            ></textarea>
           </div>
           <div className="dash-form-btn-box">
             {currentAccount && (
@@ -70,6 +103,9 @@ const Dashboard = () => {
               <button onClick={connectWallet}>Connect Wallet</button>
             )}
           </div>
+        </div>
+        <div className="make-transactions">
+          <button onClick={connectWallet}>Make a transaction</button>
         </div>
       </div>
     </section>
