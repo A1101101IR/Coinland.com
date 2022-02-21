@@ -2,14 +2,15 @@ import { Link } from "react-router-dom";
 import Facebook from "../img/facebook.png";
 import Instagram from "../img/instagram.png";
 import Twitter from "../img/twitter.png";
+import logoimage from "../img/logo.png";
 const Footer = () => {
   return (
     <section className="Footer">
       <div className="coinland-footer">
-        <a href="/">
-          <h2>Coinland</h2>
-          <p>Just type what's on your mind</p>
-        </a>
+        <Link className="logo" to="/">
+          <img src={logoimage} width={40} alt="" />
+          <h2>Coinland.</h2>
+        </Link>
       </div>
       <div>
         <nav className="footer-nav">
