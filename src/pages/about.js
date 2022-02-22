@@ -17,7 +17,7 @@ const About = () => {
 			/>
 			<Aboutcreators />
 			<Aboutcut
-				text="We'd love to hear from you😉"
+				text="Psst... Send us a message. We'd love to hear from you😉"
 				button='Contact'
 				path={"/contact"}
 				background='#182333'
