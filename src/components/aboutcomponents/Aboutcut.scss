@@ -1,6 +1,7 @@
 @import "../../styles.scss";
 
 .aboutcut {
+<<<<<<< HEAD
 	width: 100%;
 	height: auto;
 	padding-top: 1rem;
@@ -34,4 +35,38 @@
 			}
 		}
 	}
+=======
+  width: 100%;
+  height: auto;
+  padding-bottom: 4rem;
+  background-color: $buttonColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 64px;
+  padding-bottom: 112px;
+  &__container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 620px;
+    h1 {
+      font-size: 3.1rem;
+      color: white;
+      letter-spacing: -2px;
+    }
+    button {
+      margin: auto;
+      @include buttonOutline;
+      color: $buttonColor;
+      background-color: white;
+      width: 200px;
+      &:hover {
+        background-color: rgb(0, 129, 235);
+        color: white;
+      }
+    }
+  }
+>>>>>>> 715a2b7082b0892fe1c1fd96dbef9227b17e71fd
 }

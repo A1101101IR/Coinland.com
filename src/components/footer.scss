@@ -1,4 +1,5 @@
 .Footer {
+<<<<<<< HEAD
 	height: auto;
 	display: flex;
 	justify-content: center;
@@ -32,6 +33,42 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+=======
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: beige;
+  margin-top: 80px;
+  padding: 2rem 0;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    min-width: 400px;
+    .footer-nav {
+      display: flex;
+      text-align: center;
+      a {
+        padding: 20px;
+        color: black;
+        opacity: 90%;
+      }
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
+        a {
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .coinland-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+>>>>>>> 715a2b7082b0892fe1c1fd96dbef9227b17e71fd
 
 		height: auto;
 		h2 {

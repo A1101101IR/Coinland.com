@@ -22,7 +22,6 @@ const Main = () => {
         byter section utan att märka det. kanske scroll function!?
       </h1> */}
       <Service />
-      <Footer />
     </div>
   );
 };
