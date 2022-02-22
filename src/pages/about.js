@@ -21,7 +21,6 @@ const About = () => {
 				path={"/contact"}
 				background='#182333'
 			/>
-			<Footer />
 		</section>
 	)
 }
