@@ -33,54 +33,58 @@ const Aboutcreators = () => {
 				</div>
 
 				<div className='aboutcreators__container__contacts'>
-					<img src={amir} alt='' />
-					<h2>Amir Nabizadeh</h2>
-					<p>
-						<span>
-							Amir is a well known programmer based in Stockholm,
-							Sweden. He loves to play Cricket and Tagliatelle and
-							tagliatelle again
-						</span>
-						<br />
-						<br />
-						+46 70 211 50 62 <br />
-						Amir@Nabizadeh.se
-					</p>
-					<div className='aboutcreators__container__contacts__links'>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsFacebook style={{ color: "#1778F2" }} />
-						</div>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsGithub style={{ color: "#171515" }} />
-						</div>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsTwitter style={{ color: "#1DA1F2" }} />
+					<div className='aboutcard'>
+						<img src={amir} alt='' />
+						<h2>Amir Nabizadeh</h2>
+						<p>
+							<span>
+								Amir is a well known programmer based in
+								Stockholm, Sweden. He loves to play Cricket and
+								Tagliatelle and tagliatelle again
+							</span>
+							<br />
+							<br />
+							+46 70 211 50 62 <br />
+							Amir@Nabizadeh.se
+						</p>
+						<div className='aboutcreators__container__contacts__links'>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsFacebook style={{ color: "#1778F2" }} />
+							</div>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsGithub style={{ color: "#171515" }} />
+							</div>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsTwitter style={{ color: "#1DA1F2" }} />
+							</div>
 						</div>
 					</div>
 				</div>
 				<div className='aboutcreators__container__contacts'>
-					<img src={oscar} alt='' />
-					<h2>Oscar Rainergren</h2>
-					<p>
-						<span>
-							Oscar is a well known programmer based in Stockholm,
-							Sweden. He loves to play Cricket and Tagliatelle and
-							tagliatelle again
-						</span>
-						<br />
-						<br />
-						+46 70 211 50 62 <br />
-						Oscar@rainergren.se
-					</p>
-					<div className='aboutcreators__container__contacts__links'>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsFacebook style={{ color: "#1778F2" }} />
-						</div>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsGithub style={{ color: "#171515" }} />
-						</div>
-						<div className='aboutcreators__container__contacts__links__link'>
-							<BsTwitter style={{ color: "#1DA1F2" }} />
+					<div className='aboutcard'>
+						<img src={oscar} alt='' />
+						<h2>Oscar Rainergren</h2>
+						<p>
+							<span>
+								Oscar is a well known programmer based in
+								Stockholm, Sweden. He loves to play Cricket and
+								Tagliatelle and tagliatelle again
+							</span>
+							<br />
+							<br />
+							+46 70 211 50 62 <br />
+							Oscar@rainergren.se
+						</p>
+						<div className='aboutcreators__container__contacts__links'>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsFacebook style={{ color: "#1778F2" }} />
+							</div>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsGithub style={{ color: "#171515" }} />
+							</div>
+							<div className='aboutcreators__container__contacts__links__link'>
+								<BsTwitter style={{ color: "#1DA1F2" }} />
+							</div>
 						</div>
 					</div>
 				</div>
