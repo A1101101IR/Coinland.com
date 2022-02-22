@@ -5,5 +5,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	height: auto;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 18%,
+		rgba(19, 252, 255, 0.4472163865546218) 48%,
+		rgba(255, 255, 255, 1) 80%
+	);
 }
