@@ -2,19 +2,24 @@
 @import "./styles.scss";
 
 body {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	overflow-x: hidden;
-	font-family: $headerFont;
-	overflow-y: scroll;
-	letter-spacing: -0, 5px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: $headerFont;
+  overflow-y: scroll;
+  letter-spacing: -0, 5px;
 }
 
 .body-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 a {
-	text-decoration: none;
+  text-decoration: none;
+}
+.loading {
+  text-align: center;
+  font-weight: 500;
+  color: black;
 }
