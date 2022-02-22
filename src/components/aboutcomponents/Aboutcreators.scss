@@ -71,18 +71,17 @@
 			p {
 				max-width: 280px;
 				text-align: center;
-
+				color: $subtitleColor;
 				letter-spacing: -0.8px;
 				font-weight: 500;
-				color: rgb(109, 109, 109);
 			}
 			span {
 				font-weight: 600;
-				color: $subtitleColor;
 			}
 			h2 {
 				color: $buttonColor;
 				margin-bottom: 0;
+				font-size: 1.8rem;
 			}
 			&__links {
 				display: flex;

@@ -43,9 +43,7 @@ const Aboutcreators = () => {
 						</span>
 						<br />
 						<br />
-						<BsFillTelephoneFill />
 						+46 70 211 50 62 <br />
-						<BsFillEnvelopeFill />
 						Amir@Nabizadeh.se
 					</p>
 					<div className='aboutcreators__container__contacts__links'>

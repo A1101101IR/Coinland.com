@@ -3,6 +3,7 @@ import "../components/aboutcomponents/Aboutheader"
 import Aboutcut from "../components/aboutcomponents/Aboutcut"
 import Aboutcreators from "../components/aboutcomponents/Aboutcreators"
 import Footer from "../components/footer"
+import Contactform from "../components/Contactform"
 
 const About = () => {
 	return (
@@ -16,7 +17,7 @@ const About = () => {
 			/>
 			<Aboutcreators />
 			<Aboutcut
-				text='Contact us for info or something idk'
+				text="We'd love to hear from you😉"
 				button='Contact'
 				path={"/contact"}
 				background='#182333'
