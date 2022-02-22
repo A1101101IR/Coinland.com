@@ -1,58 +1,58 @@
 .Footer {
-	height: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	background-color: rgb(255, 254, 247);
-	padding: 2rem 0;
-	div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		min-height: 150px;
-		min-width: 400px;
-		.footer-nav {
-			display: flex;
-			text-align: center;
-			a {
-				padding: 20px;
-				color: black;
-				opacity: 90%;
-			}
-			@media screen and (max-width: 500px) {
-				flex-direction: column;
-				a {
-					padding: 20px;
-				}
-			}
-		}
-	}
-	.coinland-footer {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: rgb(255, 254, 247);
+  padding: 2rem 0;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    min-width: 400px;
+    .footer-nav {
+      display: flex;
+      text-align: center;
+      a {
+        padding: 20px;
+        color: black;
+        opacity: 90%;
+      }
+      @media screen and (max-width: 500px) {
+        flex-direction: column;
+        a {
+          padding: 20px;
+        }
+      }
+    }
+  }
+  .coinland-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-		height: auto;
-		h2 {
-			margin-bottom: 0px;
-			margin-top: 5px;
-			margin-left: 5px;
-		}
-		p {
-			margin: 0;
-		}
-		a {
-			color: black;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			margin-left: 0px;
-		}
-	}
-	.social-icons {
-		a {
-			padding: 0px 20px;
-		}
-	}
+    height: auto;
+    h2 {
+      margin-bottom: 0px;
+      margin-top: 5px;
+      margin-left: 5px;
+    }
+    p {
+      margin: 0;
+    }
+    a {
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0px;
+    }
+  }
+  .social-icons {
+    a {
+      padding: 0px 20px;
+    }
+  }
 }
