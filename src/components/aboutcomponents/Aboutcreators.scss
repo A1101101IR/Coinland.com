@@ -3,10 +3,25 @@
 .aboutcreators {
 	display: flex;
 	justify-content: center;
-	height: 100rem;
+	height: auto;
 	margin-top: 5rem;
+
+	.blueblob {
+		position: absolute;
+		width: 600px;
+		top: 1750px;
+		left: -270px;
+	}
+	.yellowblob {
+		position: absolute;
+		overflow: hidden;
+		width: 500px;
+		top: 2400px;
+		right: -200px;
+	}
 	&__container {
 		max-width: 1100px;
+		z-index: 999;
 		&__split {
 			display: grid;
 			grid-template-columns: 60% 40%;
@@ -52,15 +67,18 @@
 			img {
 				max-width: 200px;
 				border-radius: 50%;
-				border: 2px solid $buttonColor;
 			}
 			p {
-				max-width: 300px;
+				max-width: 280px;
 				text-align: center;
-				color: $subtitleColor;
+
+				letter-spacing: -0.8px;
+				font-weight: 500;
+				color: rgb(109, 109, 109);
 			}
 			span {
-				font-weight: 500;
+				font-weight: 600;
+				color: $subtitleColor;
 			}
 			h2 {
 				color: $buttonColor;
@@ -70,9 +88,8 @@
 				display: flex;
 				margin-top: 1rem;
 				gap: 2.5rem;
-				img {
-					border: none;
-					width: 40px;
+				&__link {
+					font-size: 2rem;
 				}
 			}
 		}
