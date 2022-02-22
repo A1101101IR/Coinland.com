@@ -17,7 +17,6 @@ const Pricing = () => {
             <span className="price">$4</span>
             <span className="month">/month per user</span>
           </div>
-          {/* <p>Most calendare are desingned for teams.</p> */}
           <button>Get started</button>
         </div>
       </div>

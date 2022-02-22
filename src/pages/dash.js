@@ -1,11 +1,7 @@
-import {
-  TransactionContext,
-  TrendingCoins,
-} from "../contexts/TransactionContext";
-import React, { useContext } from "react";
-import { useState, useEffect } from "react";
 import axios, { Axios } from "axios";
 import Coin from "../components/coin";
+import React, { useContext, useState, useEffect } from "react";
+import { TransactionContext } from "../contexts/TransactionContext";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);

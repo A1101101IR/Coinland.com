@@ -3,7 +3,6 @@ const Service = () => {
     <section className="service">
       <div className="service-box">
         <h2>Online Support 24/7</h2>
-        {/* <h1>Coinland</h1> */}
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero,
           voluptatum? Perferendis, officia non. Explicabo minima dolore, velit

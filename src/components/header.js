@@ -1,4 +1,3 @@
-import cryptoscreen from "../img/screen.png";
 import Dashboard from "../pages/dash";
 const Header = () => {
   return (

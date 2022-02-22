@@ -1,8 +1,9 @@
+import logoimage from "../img/logo.png";
 import { Link } from "react-router-dom";
+import Twitter from "../img/twitter.png";
 import Facebook from "../img/facebook.png";
 import Instagram from "../img/instagram.png";
-import Twitter from "../img/twitter.png";
-import logoimage from "../img/logo.png";
+
 const Footer = () => {
   return (
     <section className="Footer">
@@ -29,13 +30,13 @@ const Footer = () => {
         </nav>
       </div>
       <div className="social-icons">
-        <a href="">
+        <a href="https://www.facebook.com" target="_blank">
           <img src={Facebook} width={40} />
         </a>
-        <a href="">
+        <a href="https://www.instagram.com" target="_blank">
           <img src={Instagram} width={40} />
         </a>
-        <a href="">
+        <a href="https://twitter.com" target="_blank">
           <img src={Twitter} width={40} />
         </a>
       </div>
