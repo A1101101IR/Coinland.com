@@ -9,7 +9,6 @@ const Contact = () => {
 		<section className='contact__main'>
 			<ContactHeader />
 			<Contactform />
-			<Footer />
 		</section>
 	)
 }
