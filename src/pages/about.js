@@ -1,10 +1,14 @@
-import "./about.scss"
+import Aboutheader from "../components/aboutcomponents/Aboutheader"
+import "../components/aboutcomponents/Aboutheader"
+import Aboutcut from "../components/aboutcomponents/Aboutcut"
+import Aboutcreators from "../components/aboutcomponents/Aboutcreators"
 
 const About = () => {
 	return (
-		<section className='about'>
-			{/* what about use section for each part of page to simplify html structure?  */}
-			<h1>this is about page</h1>
+		<section className='about__main'>
+			<Aboutheader />
+			<Aboutcut />
+			<Aboutcreators />
 		</section>
 	)
 }

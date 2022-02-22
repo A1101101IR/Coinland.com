@@ -1,7 +1,12 @@
-import Dashboard from "./dash";
+import Dashboard from "./dash"
+import "./product.scss"
 
 const Product = () => {
-  return <Dashboard></Dashboard>;
-};
+	return (
+		<section className='product'>
+			<Dashboard />
+		</section>
+	)
+}
 
-export default Product;
+export default Product

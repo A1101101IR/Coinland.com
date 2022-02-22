@@ -49,9 +49,8 @@ $large: 1200px;
 	height: 45px;
 	border-radius: 40px;
 	border: none;
-	opacity: 0.8;
 	background-color: white;
-	color: black;
+	color: $subtitleColor;
 	border: 1px solid $buttonColor;
 	font-size: 1rem;
 	transition: all 0.2s ease;
@@ -59,7 +58,4 @@ $large: 1200px;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	&:hover {
-		opacity: 1;
-	}
 }
