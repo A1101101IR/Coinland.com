@@ -43,7 +43,7 @@ const TransactionProvider = ({ children }) => {
         setCurrentAccount(accounts[0]);
         // getAllTransactions();
       } else {
-        console.log("ethereum objects not found!");
+        /* console.log("ethereum objects not found!"); */
       }
       /* console.log(accounts); */
     } catch (error) {
