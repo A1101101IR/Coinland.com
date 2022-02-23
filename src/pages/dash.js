@@ -1,12 +1,17 @@
+import Chartjs from "chart.js";
 import axios, { Axios } from "axios";
 import Coin from "../components/coin";
-import React, { useContext, useState, useEffect, useRef } from "react";
-import { TransactionContext } from "../contexts/TransactionContext";
-import Chartjs from "chart.js";
 import HistoryChart from "../components/chart";
+import { TransactionContext } from "../contexts/TransactionContext";
+import React, { useContext, useState, useEffect, useRef } from "react";
 
 const Dashboard = () => {
+  const chartRef = useRef();
+  const [coin, setCoin] = useState();
+  const [coinData, setcoinData] = useState();
   const [loading, setLoading] = useState(true);
+
+  /* declarering needed const from our transactionscontext */
   const {
     connectWallet,
     currentAccount,
@@ -14,14 +19,16 @@ const Dashboard = () => {
     handleChange,
     sendTransaction,
   } = useContext(TransactionContext);
+
+  /* handelsubmit for transfer form data */
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
     e.preventDefault();
     /* if (!addressTo || !amount || !keyword || !message) return; */
     sendTransaction();
   };
-  const [coin, setCoin] = useState();
-  const [coinData, setcoinData] = useState();
+
+  /* format coin data to less number */
   const formatData = (data) => {
     return data.map((el) => {
       return {
@@ -30,10 +37,10 @@ const Dashboard = () => {
       };
     });
   };
-  const chartRef = useRef();
+
   /* options for our chart */
   const historyOptions = {
-    aspectRatio: 2.5,
+    aspectRatio: 2.3,
     lineHeigtAnnotation: {
       always: true,
       hover: false,
@@ -42,7 +49,6 @@ const Dashboard = () => {
     animation: {
       duration: 1000,
     },
-
     maintainAspectRatio: false,
     responsive: true,
     scales: {
@@ -64,18 +70,22 @@ const Dashboard = () => {
       display: false,
     },
   };
+
+  /* useEffetct for fetching api and create chart */
   useEffect(() => {
+    /* fetch coin data */
     Promise.all([
       axios
         .get(
-          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20shiba-inu%2C%20binance-usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20solana%2C%20cardano&order=market_cap_desc&per_page=100&page=1&sparkline=false"
         )
         .then((res) => {
           /* console.log(res.data); */
           setCoin(res.data);
+          console.log(res.data);
           setTimeout(() => {
             setLoading(false);
-          }, 500);
+          }, 0);
         })
         .catch((error) => console.log(error)),
       axios
@@ -93,6 +103,8 @@ const Dashboard = () => {
         })
         .catch((error) => console.log(error)),
     ]);
+
+    /* create chart */
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -102,7 +114,7 @@ const Dashboard = () => {
               label: "Bitcoin price",
               data: coinData,
               backgroundColor: "rgb(255, 255, 255)",
-              borderColor: "rgba(0,0,0)",
+              borderColor: "rgba(3,0,0)",
               pointRadius: 0,
               borderWidth: 2,
               fill: false,
@@ -117,6 +129,7 @@ const Dashboard = () => {
   return (
     <>
       <section className="Dashboard">
+        {/* loops small coin dash */}
         <div className="dash-navbar">
           {coin &&
             coin.slice(0, 4).map((coin) => {
@@ -125,20 +138,21 @@ const Dashboard = () => {
                   key={coin.id}
                   name={coin.name}
                   image={coin.image}
-                  symbol={coin.symbol}
                   price={coin.current_price}
+                  id={coin.id}
                   loading={loading}
                 />
               );
             })}
         </div>
         <div className="dash-body">
+          {/* display big chart */}
           <div className="dash-chart">
-            {/* {loading && <div className="loading">Loading...</div>}
-            {!loading && } */}
-            {/* <HistoryChart /> */}
-            <canvas ref={chartRef} className="coin-chart"></canvas>
+            {coinData && (
+              <canvas ref={chartRef} className="coin-chart"></canvas>
+            )}
           </div>
+          {/* transfer from and box */}
           <div className="dash-form-box">
             <div className="dash-form">
               <select>
@@ -164,13 +178,6 @@ const Dashboard = () => {
                 name="keyword"
                 onChange={handleChange}
               />
-              {/* <input
-              type="text"
-              className="message-input"
-              placeholder="message"
-              name="message"
-              onChange={handleChange}
-            /> */}
               <textarea
                 type="text"
                 className="message-input"
@@ -179,6 +186,7 @@ const Dashboard = () => {
                 onChange={handleChange}
               ></textarea>
             </div>
+            {/* show Transfer btn if user is connected to wallet, else show connect wallet btn */}
             <div className="dash-form-btn-box">
               {currentAccount && (
                 <button type="button" onClick={handleSubmit}>
@@ -190,6 +198,7 @@ const Dashboard = () => {
               )}
             </div>
           </div>
+
           <div className="make-transactions">
             <button onClick={connectWallet}>Make a transaction</button>
           </div>

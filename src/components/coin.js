@@ -1,6 +1,6 @@
 import React from "react";
 import HistoryChart from "./chart";
-const Coin = ({ image, name, symbol, price, loading }) => {
+const Coin = ({ image, name, price, loading, id }) => {
   return (
     <div className="chart-box-sm">
       {loading && <div className="loading">Loading...</div>}
@@ -14,7 +14,7 @@ const Coin = ({ image, name, symbol, price, loading }) => {
             {/* <p>{symbol}</p> */}
             <p>${price}</p>
           </div>
-          {/* {!loading && <HistoryChart />} */}
+          {/* <HistoryChart /> */}
         </div>
       )}
     </div>
