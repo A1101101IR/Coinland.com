@@ -9,7 +9,7 @@ const Dashboard = () => {
   const chartRef = useRef();
   const [coin, setCoin] = useState();
   const [coinData, setcoinData] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   /* declarering needed const from our transactionscontext */
   const {
@@ -72,7 +72,9 @@ const Dashboard = () => {
   };
 
   /* useEffetct for fetching api and create chart */
+
   useEffect(() => {
+    setLoading(true);
     /* fetch coin data */
     Promise.all([
       axios
@@ -80,14 +82,13 @@ const Dashboard = () => {
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20solana%2C%20cardano&order=market_cap_desc&per_page=100&page=1&sparkline=false"
         )
         .then((res) => {
-          /* console.log(res.data); */
           setCoin(res.data);
-          /* console.log(res.data); */
           setTimeout(() => {
             setLoading(false);
           }, 0);
         }),
       axios
+        /* den behövs inte, men vill ha kvar tills jag ar klar med resten. */
         .get(
           "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1",
           {
@@ -123,88 +124,93 @@ const Dashboard = () => {
         options: historyOptions,
       });
     }
+    setLoading(false);
   }, []);
 
   return (
     <>
-      <section className="Dashboard">
-        {/* loops small coin dash */}
-        <div className="dash-navbar">
-          {coin &&
-            coin.slice(0, 3).map((coin) => {
-              return (
-                <>
-                  <Coin
-                    key={coin.id}
-                    coinId={coin.id}
-                    name={coin.name}
-                    image={coin.image}
-                    price={coin.current_price}
-                  />
-                </>
-              );
-            })}
-        </div>
-        <div className="dash-body">
-          {/* display big chart */}
-          <div className="dash-chart">
-            {coinData && (
-              <canvas ref={chartRef} className="coin-chart"></canvas>
-            )}
-            {/* <HistoryChart /> */}
+      {loading && <section className="Dashbord">Loading...</section>}
+      {!loading && (
+        <section className="Dashboard">
+          {/* loops small coin dash */}
+          <div className="dash-navbar">
+            {coin &&
+              coin.slice(0, 3).map((coin) => {
+                return (
+                  <>
+                    <Coin
+                      key={coin.id}
+                      coinId={coin.id}
+                      name={coin.name}
+                      image={coin.image}
+                      price={coin.current_price}
+                    />
+                  </>
+                );
+              })}
           </div>
-          {/* transfer from and box */}
-          <div className="dash-form-box">
-            <div className="dash-form">
-              <select>
-                <option value="Bitcoin">Bitcoin</option>
-                <option value="Bitcoin">eth</option>
-                <option value="Bitcoin">usd</option>
-              </select>
-              <input
-                type="text"
-                placeholder="Receiver address"
-                name="addressTo"
-                onChange={handleChange}
-              />
-              <input
-                type="number"
-                placeholder="Value"
-                name="amount"
-                onChange={handleChange}
-              />
-              <input
-                type="text"
-                placeholder="Keyword"
-                name="keyword"
-                onChange={handleChange}
-              />
-              <textarea
-                type="text"
-                className="message-input"
-                placeholder="message"
-                name="message"
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            {/* show Transfer btn if user is connected to wallet, else show connect wallet btn */}
-            <div className="dash-form-btn-box">
-              {currentAccount && (
-                <button type="button" onClick={handleSubmit}>
-                  Transfer
-                </button>
+          <div className="dash-body">
+            {/* display big chart */}
+            <div className="dash-chart">
+              {!coinData && <div>Loading...</div>}
+              {coinData && (
+                <canvas ref={chartRef} className="coin-chart"></canvas>
               )}
-              {!currentAccount && (
-                <button onClick={connectWallet}>Connect Wallet</button>
-              )}
+              {/* <HistoryChart /> */}
             </div>
-          </div>
+            {/* transfer from and box */}
+            <div className="dash-form-box">
+              <div className="dash-form">
+                <select>
+                  <option value="Bitcoin">Bitcoin</option>
+                  <option value="Bitcoin">eth</option>
+                  <option value="Bitcoin">usd</option>
+                </select>
+                <input
+                  type="text"
+                  placeholder="Receiver address"
+                  name="addressTo"
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  placeholder="Value"
+                  name="amount"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Keyword"
+                  name="keyword"
+                  onChange={handleChange}
+                />
+                <textarea
+                  type="text"
+                  className="message-input"
+                  placeholder="message"
+                  name="message"
+                  onChange={handleChange}
+                ></textarea>
+              </div>
+              {/* show Transfer btn if user is connected to wallet, else show connect wallet btn */}
+              <div className="dash-form-btn-box">
+                {currentAccount && (
+                  <button type="button" onClick={handleSubmit}>
+                    Transfer
+                  </button>
+                )}
+                {!currentAccount && (
+                  <button onClick={connectWallet}>Connect Wallet</button>
+                )}
+              </div>
+            </div>
 
-          <div className="make-transactions">
-            <button onClick={connectWallet}>Make a transaction</button>
+            <div className="make-transactions">
+              <button onClick={connectWallet}>Make a transaction</button>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 };

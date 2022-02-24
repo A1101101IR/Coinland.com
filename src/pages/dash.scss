@@ -1,7 +1,8 @@
 .Dashboard {
   text-align: center;
-  max-width: 1200px;
+
   position: relative;
+  max-width: 1200px;
   width: 100%;
   height: auto;
   margin-bottom: 5rem;
@@ -16,24 +17,25 @@
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
   .dash-navbar {
-    min-height: 240px;
+    min-height: 200px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-evenly;
     .chart-box-sm {
-      height: 140px;
-      min-width: 265px;
-      max-width: 400px;
+      height: auto;
+      margin-bottom: 15px;
+      min-width: 254px;
+      max-width: 355px;
       @media screen and (max-width: 1000px) {
         min-width: 350px;
         margin: 15px 0px;
       }
       @media screen and (max-width: 500px) {
         width: 400px;
-        height: auto;
         margin: 5px 5px;
+        margin-bottom: 15px;
       }
       border-radius: 7px;
       border: 1.5px solid #e5e5e5;

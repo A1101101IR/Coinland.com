@@ -8,7 +8,7 @@ const HistoryChart = (coinId) => {
   const [isLoading, setIsLoading] = useState(false);
   /* options for our chart */
   const historyOptions = {
-    aspectRatio: 2.5,
+    aspectRatio: 2.4,
     lineHeigtAnnotation: {
       always: true,
       hover: false,
@@ -31,6 +31,11 @@ const HistoryChart = (coinId) => {
             beginZero: false,
             padding: 1,
           },
+        },
+      ],
+      yAxes: [
+        {
+          display: true,
         },
       ],
     },
@@ -65,11 +70,13 @@ const HistoryChart = (coinId) => {
         )
         .then((res) => {
           setcoinData(formatData(res.data.prices));
-
           setIsLoading(false);
         });
     };
     fetchApi();
+    /* const interval = setInterval(() => {
+      
+    }, 1000); */
     console.log(coinData);
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
