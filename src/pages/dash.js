@@ -86,8 +86,7 @@ const Dashboard = () => {
           setTimeout(() => {
             setLoading(false);
           }, 0);
-        })
-        .catch((error) => console.log(error)),
+        }),
       axios
         .get(
           "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1",
@@ -134,23 +133,25 @@ const Dashboard = () => {
           {coin &&
             coin.slice(0, 4).map((coin) => {
               return (
-                <Coin
-                  key={coin.id}
-                  name={coin.name}
-                  image={coin.image}
-                  price={coin.current_price}
-                  id={coin.id}
-                  loading={loading}
-                />
+                <>
+                  <Coin
+                    coinId={coin.id}
+                    name={coin.name}
+                    image={coin.image}
+                    price={coin.current_price}
+                    id={coin.id}
+                  />
+                </>
               );
             })}
         </div>
         <div className="dash-body">
           {/* display big chart */}
           <div className="dash-chart">
-            {coinData && (
+            {/* {coinData && (
               <canvas ref={chartRef} className="coin-chart"></canvas>
-            )}
+            )} */}
+            <HistoryChart />
           </div>
           {/* transfer from and box */}
           <div className="dash-form-box">
