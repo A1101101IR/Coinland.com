@@ -56,7 +56,7 @@ const HistoryChart = (coinId) => {
     });
   };
   useEffect(() => {
-    console.log(id.coinId);
+    /* console.log(id.coinId); */
     const fetchApi = async () => {
       setIsLoading(true);
       axios
@@ -75,10 +75,6 @@ const HistoryChart = (coinId) => {
         });
     };
     fetchApi();
-    /* const interval = setInterval(() => {
-      
-    }, 1000); */
-    console.log(coinData);
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",

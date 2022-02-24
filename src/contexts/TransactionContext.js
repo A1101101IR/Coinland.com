@@ -104,6 +104,7 @@ const TransactionProvider = ({ children }) => {
       throw new error("ethereum objects not found!");
     }
   };
+
   useEffect(() => {
     checkWallet();
   }, []);
