@@ -82,7 +82,7 @@ const Dashboard = () => {
         .then((res) => {
           /* console.log(res.data); */
           setCoin(res.data);
-          console.log(res.data);
+          /* console.log(res.data); */
           setTimeout(() => {
             setLoading(false);
           }, 0);
@@ -131,15 +131,15 @@ const Dashboard = () => {
         {/* loops small coin dash */}
         <div className="dash-navbar">
           {coin &&
-            coin.slice(0, 4).map((coin) => {
+            coin.slice(0, 3).map((coin) => {
               return (
                 <>
                   <Coin
+                    key={coin.id}
                     coinId={coin.id}
                     name={coin.name}
                     image={coin.image}
                     price={coin.current_price}
-                    id={coin.id}
                   />
                 </>
               );
@@ -148,10 +148,10 @@ const Dashboard = () => {
         <div className="dash-body">
           {/* display big chart */}
           <div className="dash-chart">
-            {/* {coinData && (
+            {coinData && (
               <canvas ref={chartRef} className="coin-chart"></canvas>
-            )} */}
-            <HistoryChart />
+            )}
+            {/* <HistoryChart /> */}
           </div>
           {/* transfer from and box */}
           <div className="dash-form-box">

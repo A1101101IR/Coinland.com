@@ -1,16 +1,16 @@
 import { Chart } from "chart.js";
 import React, { useRef, useState, useEffect } from "react";
 import HistoryChart from "./chart";
-const Coin = ({ image, name, price, loading, coinId, id }) => {
+const Coin = ({ image, name, price, loading, coinId }) => {
   const chartRef = useRef();
   const [myChart, setMyChart] = useState();
   const displayChart = () => {
-    setMyChart({ id });
-    console.log(myChart.id);
+    setMyChart({ coinId });
+    /* console.log(myChart); */
   };
 
   return (
-    <div className="chart-box-sm" onClick={() => displayChart({ id })}>
+    <div className="chart-box-sm" onClick={() => displayChart({ coinId })}>
       {loading && <div className="loading">Loading...</div>}
       {!loading && (
         <div>
@@ -22,8 +22,9 @@ const Coin = ({ image, name, price, loading, coinId, id }) => {
             {/* <p>{symbol}</p> */}
             <p>${price}</p>
           </div>
-          <div className="hidden">
-            <HistoryChart coinId={myChart} />
+          <div className="hidde">
+            <HistoryChart coinId={coinId} />
+            {/* {console.log(coinId)} */}
           </div>
         </div>
       )}

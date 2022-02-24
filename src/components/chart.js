@@ -2,8 +2,10 @@ import { useRef, useEffect, useState } from "react";
 import axios, { Axios } from "axios";
 import Chartjs from "chart.js";
 
-const HistoryChart = (id) => {
+const HistoryChart = (coinId) => {
+  const id = coinId;
   const chartRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   /* options for our chart */
   const historyOptions = {
     aspectRatio: 2.5,
@@ -37,8 +39,38 @@ const HistoryChart = (id) => {
     },
   };
   /* const for fetch history func */
-
+  const [coinData, setcoinData] = useState();
+  /* format coin data to less number */
+  const formatData = (data) => {
+    return data.map((el) => {
+      return {
+        t: el[0],
+        y: el[1].toFixed(2),
+      };
+    });
+  };
   useEffect(() => {
+    console.log(id.coinId);
+    const fetchApi = async () => {
+      setIsLoading(true);
+      axios
+        .get(
+          `https://api.coingecko.com/api/v3/coins/${id.coinId}/market_chart?vs_currency=usd&days=1`,
+          {
+            params: {
+              vs_currency: "usd",
+              days: "1",
+            },
+          }
+        )
+        .then((res) => {
+          setcoinData(formatData(res.data.prices));
+
+          setIsLoading(false);
+        });
+    };
+    fetchApi();
+    console.log(coinData);
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -46,7 +78,7 @@ const HistoryChart = (id) => {
           datasets: [
             {
               label: "Bitcoin price",
-              data: [12, 19, 3, 5, 2, 3],
+              data: coinData,
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,
@@ -60,7 +92,11 @@ const HistoryChart = (id) => {
     }
   }, []);
 
-  return <canvas ref={chartRef} className="coin-chart"></canvas>;
+  return (
+    <div>
+      {coinData && <canvas ref={chartRef} className="coin-chart"></canvas>}
+    </div>
+  );
 };
 
 export default HistoryChart;
