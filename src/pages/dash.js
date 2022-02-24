@@ -116,7 +116,8 @@ const Dashboard = () => {
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(3,0,0)",
               pointRadius: 0,
-              borderWidth: 2,
+              /* ändra borderWidth till 2 och spara för att få den stora charten visa datan. */
+              borderWidth: 1,
               fill: false,
             },
           ],

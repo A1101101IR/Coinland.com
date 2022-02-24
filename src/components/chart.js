@@ -29,6 +29,7 @@ const HistoryChart = (coinId) => {
           },
           ticks: {
             beginZero: false,
+            /* ändra padding till 2 och spara för att se små charts i dash navbar */
             padding: 1,
           },
         },
