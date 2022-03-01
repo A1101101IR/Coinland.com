@@ -20,7 +20,6 @@ const useData = () => {
   /* id for big chart */
   /* create func for add coin id for big chart */
   useEffect(() => {
-    setDataIsLoading(true);
     Promise.all([
       fetch(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20solana%2C%20cardano&order=market_cap_desc&per_page=100&page=1&sparkline=false"

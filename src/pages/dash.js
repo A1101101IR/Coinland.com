@@ -1,7 +1,7 @@
 import Chartjs from "chart.js";
 import axios, { Axios } from "axios";
-import Coin from "../components/coin";
-import HistoryChart from "../components/chart";
+import Coin from "../dashComponents/coin";
+import HistoryChart from "../dashComponents/chart";
 import { TransactionContext } from "../contexts/TransactionContext";
 import React, { useContext, useState, useEffect, useRef } from "react";
 

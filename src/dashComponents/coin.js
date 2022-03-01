@@ -3,8 +3,9 @@ import Chartjs from "chart.js";
 import useData from "./fetchData";
 import MiniChart from "./miniChart";
 
-const Coin = (/* { coinsData, chartsData } */) => {
-  const { coinsData, chartsData, dataIsLoading } = useData();
+const Coin = ({ coinsData }) => {
+  /* const { coinsData, chartsData, dataIsLoading } = useData(); */
+
   return (
     <>
       <div className="dash-navbar">
@@ -20,7 +21,7 @@ const Coin = (/* { coinsData, chartsData } */) => {
                   </div>
                   <p>${coinsData.current_price}</p>
                 </div>
-                <MiniChart chartId={coinsData.id} />
+                <MiniChart id={coinsData.id} />
               </div>
             );
           })}

@@ -1,14 +1,14 @@
 import { useRef, useEffect, useState } from "react";
 import axios, { Axios } from "axios";
+import gecko from "../dashComponents/gecko";
 import Chartjs from "chart.js";
+import { useParams } from "react-router-dom";
 
-const MiniChart = (chartId) => {
-  /* const for fetch history func */
-  /* console.log(chartId.chartId); */
-  const [coinData, setcoinData] = useState();
-  const [loading, setLoading] = useState(false);
+const MiniChart = ({ id }) => {
+  /* const { id } = useParams(); */
   const chartRef = useRef();
-  /* options for our chart */
+  const [chartsData, setChartsData] = useState(null);
+  const [dataIsLoading, setDataIsLoading] = useState(false);
   const historyOptions = {
     aspectRatio: 2.4,
     lineHeigtAnnotation: {
@@ -54,26 +54,21 @@ const MiniChart = (chartId) => {
       };
     });
   };
-  useEffect(() => {
-    /* const fetchApi = async () => {};
-    fetchApi(); */
-    setLoading(true);
-    axios
-      .get(
-        `https://api.coingecko.com/api/v3/coins/${chartId.chartId}/market_chart?vs_currency=usd&days=1`,
-        {
-          params: {
-            vs_currency: "usd",
-            days: "1",
-          },
-        }
-      )
-      .then((res) => {
-        setcoinData(formatData(res.data.prices));
-        console.log(coinData);
-        setLoading(false);
-      });
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setDataIsLoading(true);
+      const chart = await gecko.get("/coins/ethereum/market_chart/", {
+        params: {
+          vs_currency: "usd",
+          days: "1",
+        },
+      });
+      setChartsData(formatData(chart.data.prices));
+      console.log(chart.data.prices);
+      setDataIsLoading(false);
+    };
+    fetchData();
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -81,23 +76,28 @@ const MiniChart = (chartId) => {
           datasets: [
             {
               label: "Bitcoin price",
-              data: coinData,
+              data: chartsData,
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,
-              borderWidth: 1,
+              borderWidth: 1.3,
               fill: false,
             },
           ],
         },
-        options: historyOptions,
+        options: {
+          ...historyOptions,
+        },
       });
     }
   }, []);
-
-  return (
-    <>{coinData && <canvas ref={chartRef} className="coin-chart"></canvas>}</>
-  );
+  const renderChart = () => {
+    if (dataIsLoading) {
+      return <div>Loading...</div>;
+    }
+    return <canvas ref={chartRef} className="coin-chart"></canvas>;
+  };
+  return renderChart();
 };
 
 export default MiniChart;

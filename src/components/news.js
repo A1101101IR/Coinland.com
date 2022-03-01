@@ -1,3 +1,5 @@
+import axios, { Axios } from "axios";
+import { useRef, useEffect, useState } from "react";
 const News = () => {
   return (
     <section className="news">
