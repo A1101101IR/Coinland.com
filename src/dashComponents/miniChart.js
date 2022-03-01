@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import axios, { Axios } from "axios";
-import gecko from "../dashComponents/gecko";
+import gecko from "./axios";
 import Chartjs from "chart.js";
 import { useParams } from "react-router-dom";
 
@@ -65,7 +65,7 @@ const MiniChart = ({ id }) => {
         },
       });
       setChartsData(formatData(chart.data.prices));
-      console.log(chart.data.prices);
+      /* console.log(chart.data.prices); */
       setDataIsLoading(false);
     };
     fetchData();

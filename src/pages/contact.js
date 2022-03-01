@@ -1,15 +1,14 @@
-import Aboutcut from "../components/aboutcomponents/Aboutcut"
-import Contactform from "../components/Contactform"
-import ContactHeader from "../components/ContactHeader"
+import Aboutcut from "../components/aboutcomponents/Aboutcut";
+import Contactform from "../components/Contactform";
+import ContactHeader from "../components/ContactHeader";
 
 const Contact = () => {
-	return (
-		<section className='contact__main'>
-			<ContactHeader />
+  return (
+    <section className="contact__main">
+      <ContactHeader />
+      <Contactform />
+    </section>
+  );
+};
 
-			<Contactform />
-		</section>
-	)
-}
-
-export default Contact
+export default Contact;

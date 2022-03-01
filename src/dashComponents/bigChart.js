@@ -6,16 +6,16 @@ const BigChart = ({ chartsData }) => {
   const chartRef = useRef();
   /* options for our chart */
   const historyOptions = {
-    aspectRatio: 2.4,
+    aspectRatio: 2.3,
     lineHeigtAnnotation: {
       always: true,
       hover: false,
       lineWeight: 1.5,
     },
     animation: {
-      duration: 100,
+      duration: 1000,
     },
-    maintainAspectRation: false,
+    maintainAspectRatio: false,
     responsive: true,
     scales: {
       xAxes: [
@@ -27,14 +27,8 @@ const BigChart = ({ chartsData }) => {
           },
           ticks: {
             beginZero: false,
-            /* ändra padding till 2 och spara för att se små charts i dash navbar */
             padding: 1,
           },
-        },
-      ],
-      yAxes: [
-        {
-          display: true,
         },
       ],
     },

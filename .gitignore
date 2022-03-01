@@ -11,7 +11,7 @@ smart_contract/
 
 # production
 /build
-
+/trash
 # misc
 .DS_Store
 .env.local
