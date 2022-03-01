@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import HistoryChart from "./chart";
-const useFetch = () => {
+import Chartjs from "chart.js";
+import Coin from "./coin";
+const useData = () => {
   /* const for fetchApis */ /* const for fetchApis */ /* const for fetchApis */
   const [coinsData, setCoinsData] = useState(null);
   const [chartsData, setChartsData] = useState(null);
   const [dataIsLoading, setDataIsLoading] = useState(false);
+
   /* format coin data to less number */
   const formatData = (data) => {
     return data.map((el) => {
@@ -14,6 +17,8 @@ const useFetch = () => {
       };
     });
   };
+  /* id for big chart */
+  /* create func for add coin id for big chart */
   useEffect(() => {
     setDataIsLoading(true);
     Promise.all([
@@ -27,7 +32,7 @@ const useFetch = () => {
           setCoinsData(data);
         }),
       fetch(
-        "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1",
+        `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=1`,
         {
           params: {
             vs_currency: "usd",
@@ -43,15 +48,9 @@ const useFetch = () => {
         }),
     ]);
     setDataIsLoading(false);
-    /* return () => {
-      cleanup;
-    }; */
   }, []);
-  return (
-    <div>
-      <HistoryChart data={chartsData} />
-    </div>
-  );
+
+  return { coinsData, chartsData, dataIsLoading };
 };
 
-export default useFetch;
+export default useData;

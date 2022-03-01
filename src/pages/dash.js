@@ -40,7 +40,7 @@ const Dashboard = () => {
 
   /* options for our chart */
   const historyOptions = {
-    aspectRatio: 2.3,
+    aspectRatio: 2.4,
     lineHeigtAnnotation: {
       always: true,
       hover: false,

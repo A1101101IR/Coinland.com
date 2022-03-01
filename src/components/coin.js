@@ -1,34 +1,31 @@
-import { Chart } from "chart.js";
 import React, { useRef, useState, useEffect } from "react";
-import HistoryChart from "./chart";
-const Coin = ({ image, name, price, loading, coinId }) => {
-  const chartRef = useRef();
-  const [myChart, setMyChart] = useState();
-  const displayChart = () => {
-    setMyChart({ coinId });
-    /* console.log(myChart); */
-  };
+import Chartjs from "chart.js";
+import useData from "./fetchData";
+import MiniChart from "./miniChart";
 
+const Coin = (/* { coinsData, chartsData } */) => {
+  const { coinsData, chartsData, dataIsLoading } = useData();
   return (
-    <div className="chart-box-sm" onClick={() => displayChart({ coinId })}>
-      {loading && <div className="loading">Loading...</div>}
-      {!loading && (
-        <div>
-          <div className="coin-box">
-            <div className="coin-img-name">
-              <img src={image} alt="coin" />
-              <h1>{name}</h1>
-            </div>
-            {/* <p>{symbol}</p> */}
-            <p>${price}</p>
-          </div>
-          <div className="hidde">
-            <HistoryChart coinId={coinId} />
-            {/* {console.log(coinId)} */}
-          </div>
-        </div>
-      )}
-    </div>
+    <>
+      <div className="dash-navbar">
+        {coinsData &&
+          coinsData.slice(0, 3).map((coinsData) => {
+            return (
+              <div className="chart-box-sm" key={coinsData.id}>
+                <div className="coin-box">
+                  <div className="coin-img-name">
+                    <img src={coinsData.image} alt="coin" />
+                    <h1>{coinsData.name}</h1>
+                    {/* <p>{coinsData.id}</p> */}
+                  </div>
+                  <p>${coinsData.current_price}</p>
+                </div>
+                <MiniChart chartId={coinsData.id} />
+              </div>
+            );
+          })}
+      </div>
+    </>
   );
 };
 

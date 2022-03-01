@@ -1,10 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import axios, { Axios } from "axios";
 import Chartjs from "chart.js";
-import useData from "./fetchData";
 
-const HistoryChart = () => {
-  const { chartsData, dataIsLoading } = useData();
+const MiniChart = (chartId) => {
+  /* const for fetch history func */
+  /* console.log(chartId.chartId); */
+  const [coinData, setcoinData] = useState();
+  const [loading, setLoading] = useState(false);
   const chartRef = useRef();
   /* options for our chart */
   const historyOptions = {
@@ -29,7 +31,6 @@ const HistoryChart = () => {
           },
           ticks: {
             beginZero: false,
-            /* ändra padding till 2 och spara för att se små charts i dash navbar */
             padding: 1,
           },
         },
@@ -44,8 +45,35 @@ const HistoryChart = () => {
       display: false,
     },
   };
-
+  /* format coin data to less number */
+  const formatData = (data) => {
+    return data.map((el) => {
+      return {
+        t: el[0],
+        y: el[1].toFixed(2),
+      };
+    });
+  };
   useEffect(() => {
+    /* const fetchApi = async () => {};
+    fetchApi(); */
+    setLoading(true);
+    axios
+      .get(
+        `https://api.coingecko.com/api/v3/coins/${chartId.chartId}/market_chart?vs_currency=usd&days=1`,
+        {
+          params: {
+            vs_currency: "usd",
+            days: "1",
+          },
+        }
+      )
+      .then((res) => {
+        setcoinData(formatData(res.data.prices));
+        console.log(coinData);
+        setLoading(false);
+      });
+
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -53,11 +81,11 @@ const HistoryChart = () => {
           datasets: [
             {
               label: "Bitcoin price",
-              data: chartsData,
+              data: coinData,
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,
-              borderWidth: 2,
+              borderWidth: 1,
               fill: false,
             },
           ],
@@ -66,11 +94,10 @@ const HistoryChart = () => {
       });
     }
   }, []);
+
   return (
-    <>
-      <canvas ref={chartRef} className="coin-chart"></canvas>
-    </>
+    <>{coinData && <canvas ref={chartRef} className="coin-chart"></canvas>}</>
   );
 };
 
-export default HistoryChart;
+export default MiniChart;
