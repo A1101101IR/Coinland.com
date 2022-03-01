@@ -1,58 +1,68 @@
-.Footer {
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: rgb(255, 254, 247);
-  padding: 2rem 0;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 150px;
-    min-width: 400px;
-    .footer-nav {
-      display: flex;
-      text-align: center;
-      a {
-        padding: 20px;
-        color: black;
-        opacity: 90%;
-      }
-      @media screen and (max-width: 500px) {
-        flex-direction: column;
-        a {
-          padding: 20px;
-        }
-      }
-    }
-  }
-  .coinland-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@import "../styles.scss";
 
-    height: auto;
-    h2 {
-      margin-bottom: 0px;
-      margin-top: 5px;
-      margin-left: 5px;
-    }
-    p {
-      margin: 0;
-    }
-    a {
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-left: 0px;
-    }
-  }
-  .social-icons {
-    a {
-      padding: 0px 20px;
-    }
-  }
+.Footer {
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background-color: $buttonColor;
+
+	padding: 2rem 0;
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 150px;
+		min-width: 400px;
+		.footer-nav {
+			display: flex;
+			text-align: center;
+			a {
+				padding: 20px;
+				color: white;
+				opacity: 90%;
+			}
+			@media screen and (max-width: 500px) {
+				flex-direction: column;
+				a {
+					padding: 20px;
+				}
+			}
+		}
+	}
+	.coinland-footer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		height: auto;
+		h2 {
+			margin-bottom: 0px;
+			margin-top: 5px;
+			margin-left: 5px;
+		}
+		p {
+			margin: 0;
+		}
+		a {
+			color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: 0px;
+		}
+	}
+	.social-icons {
+		font-size: 1.8rem;
+		gap: 2rem;
+		color: white;
+		.linkssocial {
+			color: white;
+			transition: 0.2s ease color;
+			&:hover {
+				color: rgb(0, 132, 255);
+			}
+		}
+	}
 }

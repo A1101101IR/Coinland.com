@@ -9,100 +9,100 @@
 @import "../components/progress.scss";
 
 .main__container {
-  /* margin-bottom: 100rem; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 1) 18%,
-    rgba(19, 252, 255, 0.4472163865546218) 48%,
-    rgba(255, 255, 255, 1) 85%
-  );
-  .header {
-    text-align: center;
-    height: auto;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .blueblob {
-      position: absolute;
-      width: 370px;
-      height: 370px;
-      background-color: #00b6f0;
-      border-radius: 50%;
-      left: -15rem;
-      top: 300px;
-      z-index: 0;
-      @media screen and (max-width: 600px) {
-        width: 250px;
-        height: 250px;
-        left: -8rem;
-        top: 360px;
-      }
-    }
-    .greenblob {
-      position: absolute;
-      width: 430px;
-      height: 400px;
-      background-color: #00f080;
-      border-radius: 50%;
-      right: -15rem;
-      top: 600px;
-      z-index: 0;
-      @media screen and (max-width: 600px) {
-        width: 300px;
-        height: 300px;
-        right: -10rem;
-        top: 650px;
-      }
-    }
-    h1 {
-      max-width: 700px;
-      margin-top: 6rem;
-      font-family: $headerFont;
-      font-size: 2.8rem;
-      color: $headerColor;
-      letter-spacing: -1px;
-    }
-    p {
-      max-width: 700px;
-      text-align: center;
-      font-family: $subtitlesFont;
-      color: $subtitleColor;
-      margin: 0 2rem;
-      max-width: 500px;
-      font-size: 1.1rem;
-      font-weight: 400;
-      z-index: 1;
-    }
-    .split {
-      display: flex;
-      margin-top: 8rem;
-      .active {
-        button {
-          margin: 1rem;
-          @include buttonClass;
-        }
-      }
-      .outline {
-        button {
-          margin: 1rem;
-          @include buttonOutline;
-        }
-      }
-    }
-    .screen {
-      height: auto;
-      display: flex;
-      justify-content: center;
-      img {
-        z-index: 500;
-        max-width: 100%;
-        height: 100%;
-      }
-    }
-  }
+	/* margin-bottom: 100rem; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: rgb(255, 255, 255);
+	background: linear-gradient(
+		0deg,
+		rgba(255, 255, 255, 1) 60%,
+		rgba(19, 251, 255, 0.295) 78%,
+		rgba(255, 255, 255, 1) 100%
+	);
+	.header {
+		text-align: center;
+		height: auto;
+		margin-bottom: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.blueblob {
+			position: absolute;
+			width: 370px;
+			height: 370px;
+			background-color: #00b6f0;
+			border-radius: 50%;
+			left: -15rem;
+			top: 300px;
+			z-index: 0;
+			@media screen and (max-width: 600px) {
+				width: 250px;
+				height: 250px;
+				left: -8rem;
+				top: 360px;
+			}
+		}
+		.greenblob {
+			position: absolute;
+			width: 430px;
+			height: 400px;
+			background-color: #00f080;
+			border-radius: 50%;
+			right: -15rem;
+			top: 600px;
+			z-index: 0;
+			@media screen and (max-width: 600px) {
+				width: 300px;
+				height: 300px;
+				right: -10rem;
+				top: 650px;
+			}
+		}
+		h1 {
+			max-width: 700px;
+			margin-top: 6rem;
+			font-family: $headerFont;
+			font-size: 2.8rem;
+			color: $headerColor;
+			letter-spacing: -1px;
+		}
+		p {
+			max-width: 700px;
+			text-align: center;
+			font-family: $subtitlesFont;
+			color: $subtitleColor;
+			margin: 0 2rem;
+			max-width: 500px;
+			font-size: 1.1rem;
+			font-weight: 400;
+			z-index: 1;
+		}
+		.split {
+			display: flex;
+			margin-top: 8rem;
+			.active {
+				button {
+					margin: 1rem;
+					@include buttonClass;
+				}
+			}
+			.outline {
+				button {
+					margin: 1rem;
+					@include buttonOutline;
+				}
+			}
+		}
+		.screen {
+			height: auto;
+			display: flex;
+			justify-content: center;
+			img {
+				z-index: 500;
+				max-width: 100%;
+				height: 100%;
+			}
+		}
+	}
 }
