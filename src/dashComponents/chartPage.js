@@ -6,6 +6,8 @@ import { useRef, useEffect, useState } from "react";
 
 const ChartPage = () => {
   const { id } = useParams("bitcoin");
+  const [chartsData, setChartsData] = useState(null);
+  const [dataIsLoading, setDataIsLoading] = useState(false);
   const formatData = (data) => {
     return data.map((el) => {
       return {
@@ -14,9 +16,6 @@ const ChartPage = () => {
       };
     });
   };
-
-  const [chartsData, setChartsData] = useState(null);
-  const [dataIsLoading, setDataIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       setDataIsLoading(true);
@@ -27,9 +26,7 @@ const ChartPage = () => {
         },
       });
       setChartsData(formatData(data.data.prices));
-      /* console.log(coinsData, chartsData); */
       setDataIsLoading(false);
-      console.log(chartsData);
     };
     fetchData();
   }, []);

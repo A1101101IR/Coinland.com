@@ -4,10 +4,13 @@ import gecko from "./axios";
 import Chartjs from "chart.js";
 import { useParams } from "react-router-dom";
 
-const MiniChart = ({ id }) => {
+const MiniChart = ({ myid, chartsData }) => {
   /* const { id } = useParams(); */
   const chartRef = useRef();
-  const [chartsData, setChartsData] = useState(null);
+  /* console.log(chartsData); */
+  /* console.log(myid); */
+
+  /* const [chartsData, setChartsData] = useState(null); */
   const [dataIsLoading, setDataIsLoading] = useState(false);
   const historyOptions = {
     aspectRatio: 2.4,
@@ -46,17 +49,17 @@ const MiniChart = ({ id }) => {
     },
   };
   /* format coin data to less number */
-  const formatData = (data) => {
+  /*  const formatData = (data) => {
     return data.map((el) => {
       return {
         t: el[0],
         y: el[1].toFixed(2),
       };
     });
-  };
+  }; */
 
   useEffect(() => {
-    const fetchData = async () => {
+    /* const fetchData = async () => {
       setDataIsLoading(true);
       const chart = await gecko.get(`/coins/${id}/market_chart/`, {
         params: {
@@ -68,7 +71,7 @@ const MiniChart = ({ id }) => {
       console.log(chart.data.prices);
       setDataIsLoading(false);
     };
-    fetchData();
+    fetchData(); */
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -76,7 +79,7 @@ const MiniChart = ({ id }) => {
           datasets: [
             {
               label: "Bitcoin price",
-              data: chartsData,
+              data: chartsData.bitcoin,
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,

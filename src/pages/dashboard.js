@@ -10,7 +10,7 @@ import ChartPage from "../dashComponents/chartPage";
 
 const Dashboard = () => {
   const [coinsData, setCoinsData] = useState(null);
-  const [chartsData, setChartsData] = useState(null);
+  const [chartsData, setChartsData] = useState([{}]);
   const [dataIsLoading, setDataIsLoading] = useState(false);
   const {
     connectWallet,
@@ -28,31 +28,44 @@ const Dashboard = () => {
       };
     });
   };
-  const [myId, setMyId] = useState("bitcoin");
-  const getCoinId = (id) => {
-    setMyId(id);
-    console.log(id);
-  };
-  /* onClick={() => getCoinId(coinsData.id)} */
+
   useEffect(() => {
     const fetchData = async () => {
       setDataIsLoading(true);
-      setMyId("bitcoin");
-      const [coins, chart] = await Promise.all([
+      /* setMyId("bitcoin"); */
+      const [coins, bitcoin, ethereum, solana] = await Promise.all([
         gecko.get(
-          "coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20solana%2C%20cardano&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+          "coins/markets?vs_currency=usd&ids=bitcoin%2C%20ethereum%2C%20solana&order=market_cap_desc&per_page=100&page=1&sparkline=false"
         ),
-        gecko.get(`/coins/${myId}/market_chart/`, {
+        gecko.get("/coins/bitcoin/market_chart/", {
+          params: {
+            vs_currency: "usd",
+            days: "1",
+          },
+        }),
+        gecko.get("/coins/ethereum/market_chart/", {
+          params: {
+            vs_currency: "usd",
+            days: "1",
+          },
+        }),
+        gecko.get("/coins/solana/market_chart/", {
           params: {
             vs_currency: "usd",
             days: "1",
           },
         }),
       ]);
+
       setCoinsData(coins.data);
-      setChartsData(formatData(chart.data.prices));
-      /* console.log(coinsData, chartsData); */
+      setChartsData({
+        bitcoin: formatData(bitcoin.data.prices),
+        ethereum: formatData(ethereum.data.prices),
+        solana: formatData(solana.data.prices),
+      });
+      /* setChartsData(formatData(chart.data.prices)); */
       setDataIsLoading(false);
+      /* console.log(chartsData); */
     };
     fetchData();
   }, []);
@@ -68,7 +81,7 @@ const Dashboard = () => {
           {coinsData &&
             coinsData.slice(0, 3).map((coinsData) => {
               return (
-                <Link to={`/Dashboard/${coinsData.id}`}>
+                <Link to={`/Dashboard/${coinsData.id}`} key={coinsData.id}>
                   <div className="chart-box-sm" key={coinsData.id}>
                     <div className="coin-box">
                       <div className="coin-img-name">
@@ -78,7 +91,7 @@ const Dashboard = () => {
                       </div>
                       <p>${coinsData.current_price}</p>
                     </div>
-                    <MiniChart id={coinsData.id} />
+                    <MiniChart myid={coinsData.id} chartsData={chartsData} />
                   </div>
                 </Link>
               );
