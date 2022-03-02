@@ -1,4 +1,4 @@
-import Dashboard from "../pages/dash";
+import Dashboard from "../pages/dashboard";
 const Header = () => {
   return (
     <section className="header">

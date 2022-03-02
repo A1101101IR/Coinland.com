@@ -1,5 +1,11 @@
 import Chartjs from "chart.js";
 import { useRef, useEffect, useState } from "react";
+import gecko from "./axios";
+import MiniChart from "./miniChart";
+import { TransactionContext } from "../contexts/TransactionContext";
+import Transfer from "./transfer";
+import { Routes, Route, Link } from "react-router-dom";
+import ChartPage from "./chartPage";
 
 const BigChart = ({ chartsData }) => {
   /* const { chartsData, dataIsLoading } = useData(); */
@@ -60,12 +66,10 @@ const BigChart = ({ chartsData }) => {
       });
     }
   }, []);
-
-  return (
-    <>
-      <canvas ref={chartRef} className="coin-chart"></canvas>
-    </>
-  );
+  const renderData = () => {
+    return <canvas ref={chartRef} className="coin-chart"></canvas>;
+  };
+  return renderData();
 };
 
 export default BigChart;

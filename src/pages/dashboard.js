@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect, useContext } from "react";
-import gecko from "./axios";
-import BigChart from "./bigChart";
-import MiniChart from "./miniChart";
-import { TransactionContext } from "../contexts/TransactionContext";
-import Transfer from "./transfer";
-import { Routes, Route, Link } from "react-router-dom";
-import ChartPage from "./chartPage";
+import gecko from "../dashComponents/axios";
 
-const DashData = () => {
+import BigChart from "../dashComponents/bigChart";
+import MiniChart from "../dashComponents/miniChart";
+import { TransactionContext } from "../contexts/TransactionContext";
+import Transfer from "../dashComponents/transfer";
+import { Routes, Route, Link } from "react-router-dom";
+import ChartPage from "../dashComponents/chartPage";
+
+const Dashboard = () => {
   const [coinsData, setCoinsData] = useState(null);
   const [chartsData, setChartsData] = useState(null);
   const [dataIsLoading, setDataIsLoading] = useState(false);
@@ -32,6 +33,7 @@ const DashData = () => {
     setMyId(id);
     console.log(id);
   };
+  /* onClick={() => getCoinId(coinsData.id)} */
   useEffect(() => {
     const fetchData = async () => {
       setDataIsLoading(true);
@@ -66,12 +68,8 @@ const DashData = () => {
           {coinsData &&
             coinsData.slice(0, 3).map((coinsData) => {
               return (
-                <Link to={`/coin/${coinsData.id}`}>
-                  <div
-                    className="chart-box-sm"
-                    key={coinsData.id}
-                    onClick={() => getCoinId(coinsData.id)}
-                  >
+                <Link to={`/Dashboard/${coinsData.id}`}>
+                  <div className="chart-box-sm" key={coinsData.id}>
                     <div className="coin-box">
                       <div className="coin-img-name">
                         <img src={coinsData.image} alt="coin" />
@@ -88,11 +86,7 @@ const DashData = () => {
         </div>
         <div className="dash-body">
           <div className="dash-chart">
-            {/* <BigChart chartsData={chartsData} /> */}
-            <h1>hello</h1>
-            {/* <Routes>
-              <Route path="dashdata/:id" element={<Transfer />}></Route>
-            </Routes> */}
+            <ChartPage />
           </div>
           <Transfer />
           <div className="make-transactions">
@@ -105,4 +99,4 @@ const DashData = () => {
   return renderData();
 };
 
-export default DashData;
+export default Dashboard;

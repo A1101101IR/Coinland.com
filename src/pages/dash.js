@@ -4,7 +4,7 @@ import DashData from "../dashComponents/DashData";
 const Dashboard = () => {
   return (
     <>
-      <DashData />
+      <h1>hej</h1>
     </>
   );
 };

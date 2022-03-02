@@ -58,14 +58,14 @@ const MiniChart = ({ id }) => {
   useEffect(() => {
     const fetchData = async () => {
       setDataIsLoading(true);
-      const chart = await gecko.get("/coins/ethereum/market_chart/", {
+      const chart = await gecko.get(`/coins/${id}/market_chart/`, {
         params: {
           vs_currency: "usd",
           days: "1",
         },
       });
       setChartsData(formatData(chart.data.prices));
-      /* console.log(chart.data.prices); */
+      console.log(chart.data.prices);
       setDataIsLoading(false);
     };
     fetchData();

@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 import Pagenotfound from "./pages/Pagenotfound";
 import ScrollToTop from "./components/ScrollTop";
 import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/dashboard";
+import ChartPage from "./dashComponents/chartPage";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Main />}></Route>
-        <Route path="/product" element={<Product />}></Route>
+        <Route path="/Dashboard" element={<Dashboard />}>
+          <Route path=":id" element={<ChartPage />}></Route>
+        </Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="*" element={<Pagenotfound />}></Route>
