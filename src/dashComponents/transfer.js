@@ -51,7 +51,6 @@ const Transfer = () => {
             onChange={handleChange}
           ></textarea>
         </div>
-        {/* show Transfer btn if user is connected to wallet, else show connect wallet btn */}
         <div className="dash-form-btn-box">
           {currentAccount && (
             <button type="button" onClick={handleSubmit}>

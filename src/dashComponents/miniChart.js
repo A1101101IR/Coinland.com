@@ -1,6 +1,7 @@
-import { useRef, useEffect, useState } from "react";
 import Chartjs from "chart.js";
-const MiniChart = ({ chartsData }) => {
+import { useRef, useEffect } from "react";
+
+const MiniChart = ({ data }) => {
   const chartRef = useRef();
   const historyOptions = {
     aspectRatio: 2.4,
@@ -38,30 +39,8 @@ const MiniChart = ({ chartsData }) => {
       display: false,
     },
   };
-  /* format coin data to less number */
-  /*  const formatData = (data) => {
-    return data.map((el) => {
-      return {
-        t: el[0],
-        y: el[1].toFixed(2),
-      };
-    });
-  }; */
 
   useEffect(() => {
-    /* const fetchData = async () => {
-      setDataIsLoading(true);
-      const chart = await gecko.get(`/coins/${id}/market_chart/`, {
-        params: {
-          vs_currency: "usd",
-          days: "1",
-        },
-      });
-      setChartsData(formatData(chart.data.prices));
-      console.log(chart.data.prices);
-      setDataIsLoading(false);
-    };
-    fetchData(); */
     if (chartRef && chartRef.current) {
       const chartInstance = new Chartjs(chartRef.current, {
         type: "line",
@@ -69,7 +48,7 @@ const MiniChart = ({ chartsData }) => {
           datasets: [
             {
               label: "Bitcoin price",
-              data: chartsData.bitcoin,
+              data: data,
               backgroundColor: "rgb(255, 255, 255)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,
@@ -85,9 +64,6 @@ const MiniChart = ({ chartsData }) => {
     }
   }, []);
   const renderChart = () => {
-    /* if (dataIsLoading) {
-      return <div>Loading...</div>;
-    } */
     return <canvas ref={chartRef} className="coin-chart"></canvas>;
   };
   return renderChart();

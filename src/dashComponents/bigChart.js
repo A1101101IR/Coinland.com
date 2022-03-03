@@ -43,7 +43,7 @@ const BigChart = ({ data }) => {
             {
               label: "Bitcoin price",
               data: data,
-              backgroundColor: "rgb(255, 255, 255)",
+              backgroundColor: "rgba(0,0,0)",
               borderColor: "rgba(0,0,0)",
               pointRadius: 0,
               borderWidth: 2,
