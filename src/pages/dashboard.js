@@ -1,16 +1,17 @@
 import { useRef, useState, useEffect, useContext } from "react";
 import gecko from "../dashComponents/axios";
-
 import BigChart from "../dashComponents/bigChart";
 import MiniChart from "../dashComponents/miniChart";
 import { TransactionContext } from "../contexts/TransactionContext";
 import Transfer from "../dashComponents/transfer";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Outlet } from "react-router-dom";
 import ChartPage from "../dashComponents/chartPage";
+import Bitcoin from "../dashComponents/bitcoin";
 
 const Dashboard = () => {
   const [coinsData, setCoinsData] = useState(null);
   const [chartsData, setChartsData] = useState([{}]);
+  const [data, setData] = useState();
   const [dataIsLoading, setDataIsLoading] = useState(false);
   const {
     connectWallet,
@@ -63,6 +64,7 @@ const Dashboard = () => {
         ethereum: formatData(ethereum.data.prices),
         solana: formatData(solana.data.prices),
       });
+
       /* setChartsData(formatData(chart.data.prices)); */
       setDataIsLoading(false);
       /* console.log(chartsData); */
@@ -79,19 +81,24 @@ const Dashboard = () => {
         {/* loops small coin dash */}
         <div className="dash-navbar">
           {coinsData &&
-            coinsData.slice(0, 3).map((coinsData) => {
+            coinsData.slice(0, 3).map((item) => {
               return (
-                <Link to={`/Dashboard/${coinsData.id}`} key={coinsData.id}>
-                  <div className="chart-box-sm" key={coinsData.id}>
+                <Link to={`/Dashboard/${item.id}`} key={item.id}>
+                  <div className="chart-box-sm" key={item.id}>
                     <div className="coin-box">
                       <div className="coin-img-name">
-                        <img src={coinsData.image} alt="coin" />
-                        <h1>{coinsData.name}</h1>
+                        <img src={item.image} alt="coin" />
+                        <h1>{item.name}</h1>
                         {/* <p>{coinsData.id}</p> */}
                       </div>
-                      <p>${coinsData.current_price}</p>
+                      <p>${item.current_price}</p>
                     </div>
-                    <MiniChart myid={coinsData.id} chartsData={chartsData} />
+                    <>
+                      <MiniChart chartsData={chartsData} />
+                      {/* {chartsData.map((data) => (
+                        <MiniChart chartsData={data.chartsData} />
+                      ))} */}
+                    </>
                   </div>
                 </Link>
               );
@@ -99,7 +106,8 @@ const Dashboard = () => {
         </div>
         <div className="dash-body">
           <div className="dash-chart">
-            <ChartPage />
+            {!currentAccount && <Bitcoin />}
+            <Outlet />
           </div>
           <Transfer />
           <div className="make-transactions">

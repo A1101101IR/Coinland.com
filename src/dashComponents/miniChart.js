@@ -1,17 +1,7 @@
 import { useRef, useEffect, useState } from "react";
-import axios, { Axios } from "axios";
-import gecko from "./axios";
 import Chartjs from "chart.js";
-import { useParams } from "react-router-dom";
-
-const MiniChart = ({ myid, chartsData }) => {
-  /* const { id } = useParams(); */
+const MiniChart = ({ chartsData }) => {
   const chartRef = useRef();
-  /* console.log(chartsData); */
-  /* console.log(myid); */
-
-  /* const [chartsData, setChartsData] = useState(null); */
-  const [dataIsLoading, setDataIsLoading] = useState(false);
   const historyOptions = {
     aspectRatio: 2.4,
     lineHeigtAnnotation: {
@@ -95,9 +85,9 @@ const MiniChart = ({ myid, chartsData }) => {
     }
   }, []);
   const renderChart = () => {
-    if (dataIsLoading) {
+    /* if (dataIsLoading) {
       return <div>Loading...</div>;
-    }
+    } */
     return <canvas ref={chartRef} className="coin-chart"></canvas>;
   };
   return renderChart();
