@@ -17,9 +17,11 @@ function App() {
       <Navbar />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Main />}></Route>
+        <Route path="/" element={<Main />}>
+          <Route path="" element={<Bitcoin />} />
+        </Route>
         <Route path="/Dashboard" element={<Dashboard />}>
-          <Route index element={<Solana />} />
+          <Route path="" element={<Bitcoin />} />
           <Route path="bitcoin" element={<Bitcoin />} />
           <Route path="ethereum" element={<Ethereum />} />
           <Route path="solana" element={<Solana />} />
