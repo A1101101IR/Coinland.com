@@ -20,6 +20,7 @@ const MiniChart = ({ data }) => {
         {
           type: "time",
           distribution: "linear",
+          display: false,
           gridLines: {
             display: false,
           },
@@ -31,7 +32,7 @@ const MiniChart = ({ data }) => {
       ],
       yAxes: [
         {
-          display: true,
+          display: false,
         },
       ],
     },
@@ -50,7 +51,7 @@ const MiniChart = ({ data }) => {
               label: "Bitcoin price",
               data: data,
               backgroundColor: "rgb(255, 255, 255)",
-              borderColor: "rgba(0,0,0)",
+              borderColor: "rgba(33,150,243)",
               pointRadius: 0,
               borderWidth: 1.3,
               fill: false,

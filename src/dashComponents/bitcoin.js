@@ -6,7 +6,11 @@ const Bitcoin = () => {
     if (dataIsLoading) {
       return <div>Loading...</div>;
     }
-    return <BigChart data={bitcoin} />;
+    return (
+      <>
+        <BigChart data={bitcoin} />
+      </>
+    );
   };
   return renderData();
 };

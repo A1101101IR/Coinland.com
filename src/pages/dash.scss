@@ -1,165 +1,166 @@
 .Dashboard {
-	text-align: center;
-	margin: auto;
-	position: relative;
-	max-width: 1200px;
-	width: 100%;
-	height: auto;
-	margin-bottom: 5rem;
-	@media screen and (max-width: 1000px) {
-		width: auto;
-	}
-	margin-top: 50px;
-	border-radius: 10px;
-	padding: 25px 0px;
-	background: white;
-	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-		rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  text-align: center;
+  margin: auto;
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 5rem;
+  @media screen and (max-width: 1000px) {
+    width: auto;
+  }
+  margin-top: 50px;
+  border-radius: 10px;
+  padding: 25px 0px;
+  background: white;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
-	.dash-navbar {
-		min-height: 200px;
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-evenly;
-		.chart-box-sm {
-			height: auto;
-			margin-bottom: 15px;
-			min-width: 254px;
-			max-width: 355px;
-			@media screen and (max-width: 1000px) {
-				min-width: 350px;
-				margin: 15px 0px;
-			}
-			@media screen and (max-width: 500px) {
-				width: 400px;
-				margin: 5px 5px;
-				margin-bottom: 15px;
-			}
-			border-radius: 7px;
-			border: 1.5px solid #e5e5e5;
-			.coin-box {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				border-bottom: 1px solid $subtitleColor;
+  .dash-navbar {
+    min-height: 200px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    .chart-box-sm {
+      height: auto;
+      margin-bottom: 15px;
+      min-width: 254px;
+      max-width: 365px;
+      width: 400px;
+      @media screen and (max-width: 1000px) {
+        min-width: 350px;
+        margin: 15px 0px;
+      }
+      @media screen and (max-width: 500px) {
+        width: 400px;
+        margin: 5px 5px;
+        margin-bottom: 15px;
+      }
+      border-radius: 7px;
+      border: 1.5px solid #e5e5e5;
+      .coin-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid $subtitleColor;
 
-				@media screen and (max-width: 500px) {
-					border-bottom: none;
-				}
-				padding: 8px 0px;
-				.coin-img-name {
-					display: flex;
-					align-items: center;
-				}
-				img {
-					height: 30px;
-					background-color: aliceblue;
-					border-radius: 7px;
-					margin: 0px 10px;
-				}
-				h1 {
-					font-weight: 400;
-					letter-spacing: -0.8px;
-					font-size: 18px;
-					margin: 0;
-					color: $headerFont;
-				}
-				p {
-					align-items: flex-end;
-					margin: 0;
-					margin: 0px 10px;
-					color: $headerFont;
-				}
-			}
-		}
-	}
-	.dash-body {
-		height: auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-evenly;
-		padding-top: 25px;
-		@media screen and (max-width: 1000px) {
-			flex-direction: column;
-			padding-top: 0px;
-		}
-		.dash-chart {
-			width: 65%;
-			@media screen and (max-width: 1000px) {
-				width: 95%;
-				height: 35vh;
-				margin: 15px;
-			}
-			height: 550px;
-			border: 1.5px solid #e5e5e5;
-			border-radius: 7px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			p {
-				color: $subtitleColor;
-			}
-		}
-		.dash-form-box {
-			width: 28%;
-			height: 550px;
-			border: 1.5px solid #e5e5e5;
-			border-radius: 7px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: space-between;
-			@media screen and (max-width: 1000px) {
-				display: none;
-			}
-			.dash-form {
-				@media screen and (max-width: 1000px) {
-					display: flex;
-					flex-wrap: wrap;
-				}
-				input,
-				textarea,
-				select {
-					border: none;
-					width: 88%;
-					padding-left: 10px;
-					@media screen and (max-width: 1000px) {
-						width: 25%;
-					}
-					height: 35px;
-					border-radius: 7px;
-					border: 1.5px solid #e5e5e5;
-					margin-top: 15px;
-					outline: none;
-					&:focus {
-						box-shadow: 0px 6px 10px 0px #00000024;
+        @media screen and (max-width: 500px) {
+          border-bottom: none;
+        }
+        padding: 8px 0px;
+        .coin-img-name {
+          display: flex;
+          align-items: center;
+        }
+        img {
+          height: 30px;
+          background-color: aliceblue;
+          border-radius: 7px;
+          margin: 0px 10px;
+        }
+        h1 {
+          font-weight: 400;
+          letter-spacing: -0.8px;
+          font-size: 18px;
+          margin: 0;
+          color: $headerFont;
+        }
+        p {
+          align-items: flex-end;
+          margin: 0;
+          margin: 0px 10px;
+          color: $headerFont;
+        }
+      }
+    }
+  }
+  .dash-body {
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 25px;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+      padding-top: 0px;
+    }
+    .dash-chart {
+      width: 65%;
+      @media screen and (max-width: 1000px) {
+        width: 95%;
+        height: 35vh;
+        margin: 15px;
+      }
+      height: 550px;
+      border: 1.5px solid #e5e5e5;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        color: $subtitleColor;
+      }
+    }
+    .dash-form-box {
+      width: 28%;
+      height: 550px;
+      border: 1.5px solid #e5e5e5;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+      .dash-form {
+        @media screen and (max-width: 1000px) {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        input,
+        textarea,
+        select {
+          border: none;
+          width: 88%;
+          padding-left: 10px;
+          @media screen and (max-width: 1000px) {
+            width: 25%;
+          }
+          height: 35px;
+          border-radius: 7px;
+          border: 1.5px solid #e5e5e5;
+          margin-top: 15px;
+          outline: none;
+          &:focus {
+            box-shadow: 0px 6px 10px 0px #00000024;
 
-						box-shadow: 0px 1px 18px 0px #0000001f;
+            box-shadow: 0px 1px 18px 0px #0000001f;
 
-						box-shadow: 0px 3px 5px 0px #00000033;
-						border: 1.5px solid white;
-					}
-				}
-				textarea {
-					resize: none;
-					font-family: $subtitlesFont;
-				}
-				.message-input {
-					height: 150px;
-					padding-left: 10px;
-				}
-			}
-			.dash-form-btn-box {
-				height: 60px;
-			}
-		}
-		.make-transactions {
-			display: none;
-			@media screen and (max-width: 1000px) {
-				display: block;
-			}
-		}
-	}
+            box-shadow: 0px 3px 5px 0px #00000033;
+            border: 1.5px solid white;
+          }
+        }
+        textarea {
+          resize: none;
+          font-family: $subtitlesFont;
+        }
+        .message-input {
+          height: 150px;
+          padding-left: 10px;
+        }
+      }
+      .dash-form-btn-box {
+        height: 60px;
+      }
+    }
+    .make-transactions {
+      display: none;
+      @media screen and (max-width: 1000px) {
+        display: block;
+      }
+    }
+  }
 }
