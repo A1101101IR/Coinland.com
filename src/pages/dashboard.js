@@ -53,7 +53,9 @@ const Dashboard = () => {
         }),
       ]);
 
+      /* setCoinsData(coins.data); */
       setCoinsData(coins.data);
+
       setChartsData({
         bitcoin: formatData(bitcoin.data.prices),
         ethereum: formatData(ethereum.data.prices),
@@ -101,8 +103,8 @@ const Dashboard = () => {
         </div>
         <div className="dash-body">
           <div className="dash-chart">
-            {!currentAccount && <Bitcoin />}
-            {currentAccount && <Outlet />}
+            {/* {!currentAccount && <Bitcoin />} */}
+            <Outlet />
           </div>
           <Transfer />
           <div className="make-transactions">
