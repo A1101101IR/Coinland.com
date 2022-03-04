@@ -24,8 +24,4 @@ Please tell us if you find any bug or etcetra 🤌
 
 #### Screenshot
 
-- Coming soon
-
-#### Live
-
-- Coming soon
+[![screencapture-localhost-3000-2022-03-04-13-07-00.png](https://i.postimg.cc/CxMShVPs/screencapture-localhost-3000-2022-03-04-13-07-00.png)](https://postimg.cc/ppSgC3tm)
