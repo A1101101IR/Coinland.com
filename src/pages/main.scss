@@ -27,6 +27,23 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
+		.image-header {
+			width: 100%;
+			display: flex;
+			margin-top: 2rem;
+			justify-content: center;
+			z-index: 999;
+
+			img {
+				width: 80%;
+				height: auto;
+				@media screen and (max-width: 900px) {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
 		.blueblob {
 			position: absolute;
 			width: 370px;
