@@ -13,7 +13,7 @@ const Service = () => {
           <div className="service-img"></div>
           <div className="service-personal">
             <h4>Sven Svensson</h4>
-            <h4>Sven@Coinland.com</h4>
+            <h4>support@coinland.com</h4>
           </div>
         </div>
         <button>Contact</button>

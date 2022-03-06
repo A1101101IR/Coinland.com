@@ -5,11 +5,11 @@
   max-width: 1200px;
   width: 100%;
   height: auto;
-  margin-bottom: 5rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
   @media screen and (max-width: 1000px) {
     width: auto;
   }
-  margin-top: 50px;
   border-radius: 10px;
   padding: 25px 0px;
   background: white;
@@ -162,5 +162,33 @@
         display: block;
       }
     }
+  }
+}
+.dashboard-box {
+  position: relative;
+  margin-top: 80px;
+
+  .d-box-one {
+    width: 100%;
+    filter: blur(2px);
+  }
+  .d-box-two {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 150px;
+    border-radius: 10px;
+    .spilt {
+      margin-top: 0px;
+    }
+    /* background-color: #ffffff5b; */
+
+    /* background: linear-gradient(#ffffff79, #000000ab); */
   }
 }
