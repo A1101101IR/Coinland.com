@@ -82,6 +82,7 @@
     align-items: center;
     justify-content: space-evenly;
     padding-top: 25px;
+    padding: 10px;
     @media screen and (max-width: 1000px) {
       flex-direction: column;
       padding-top: 0px;
@@ -104,7 +105,7 @@
       }
     }
     .dash-form-box {
-      width: 28%;
+      width: 367px;
       height: 550px;
       border: 1.5px solid #e5e5e5;
       border-radius: 7px;
@@ -136,12 +137,15 @@
           outline: none;
           &:focus {
             box-shadow: 0px 6px 10px 0px #00000024;
-
             box-shadow: 0px 1px 18px 0px #0000001f;
-
             box-shadow: 0px 3px 5px 0px #00000033;
             border: 1.5px solid white;
           }
+        }
+        select {
+          width: 92%;
+          height: 39px;
+          background-color: white;
         }
         textarea {
           resize: none;

@@ -41,6 +41,7 @@ const useData = () => {
       setEthereum(formatData(ethereum.data.prices));
       setSolana(formatData(solana.data.prices));
       setDataIsLoading(false);
+      
     };
     fetchData();
   }, []);
