@@ -1,53 +1,35 @@
 .service {
   display: flex;
+  padding: 100px 0px;
   justify-content: center;
-
-  /* border-top: 2px solid black; */
-
   background-image: url(../img/blob-2.svg);
   background-repeat: no-repeat;
-  background-position: bottom -100px right -200px;
-  padding: 100px 0px;
+  background-position: bottom -80px right -250px;
   .service-box {
+    display: flex;
     max-width: 1000px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
     h2 {
       margin-bottom: 50px;
+      color: #00b6f0;
       margin-top: 0;
-    }
-    h1 {
-      margin: 50px;
     }
     p {
       max-width: 600px;
       margin-bottom: 50px;
       padding: 0px 30px;
+      color: #5c5c5c;
     }
     .service-person-contact {
-      max-width: 220px;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       height: 50px;
-
+      max-width: 220px;
       margin-bottom: 50px;
-      .service-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50px;
-        background-color: black;
-      }
-      .service-personal {
-        text-align: left;
-        h4 {
-          margin: 0;
-          font-weight: 400;
-        }
-      }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 }

@@ -4,7 +4,7 @@
   position: relative;
   max-width: 1200px;
   width: 100%;
-  height: 800px;
+  min-height: 800px;
   margin-top: 0px;
   margin-bottom: 0px;
   @media screen and (max-width: 1000px) {
@@ -170,8 +170,10 @@
 }
 .dashboard-box {
   position: relative;
+  max-width: 1280px;
+  width: 100%;
+  height: auto;
   margin-top: 80px;
-
   .d-box-one {
     width: 100%;
     filter: blur(2px);
@@ -191,9 +193,6 @@
     .spilt {
       margin-top: 0px;
     }
-    /* background-color: #ffffff5b; */
-
-    /* background: linear-gradient(#ffffff79, #000000ab); */
   }
 }
 .dash-container {

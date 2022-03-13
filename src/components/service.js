@@ -9,13 +9,6 @@ const Service = () => {
           voluptas facere, ut ea animi sunt harum optio mollitia similique,
           ipsam earum hic!
         </p>
-        {/* <div className="service-person-contact">
-          <div className="service-img"></div>
-          <div className="service-personal">
-            <h4>Sven Svensson</h4>
-            <h4>support@coinland.com</h4>
-          </div>
-        </div> */}
         <button>Contact</button>
       </div>
     </section>
