@@ -1,5 +1,5 @@
-import gecko from "../dashComponents/axios";
-import MiniChart from "../dashComponents/miniChart";
+import gecko from "./dashComponents/axios";
+import MiniChart from "./dashComponents/miniChart";
 import { useState, useEffect, useContext } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { TransactionContext } from "../contexts/TransactionContext";
@@ -19,8 +19,8 @@ const Dashboard = () => {
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
     e.preventDefault();
-    /* if (!addressTo || !amount || !keyword || !message) return; */
     sendTransaction();
+    /* if (!addressTo || !amount || !keyword || !message) return; */
   };
   /* format coin data to less number */
   const formatData = (data) => {
@@ -34,8 +34,8 @@ const Dashboard = () => {
   /* function to change big chart when user select coin in transfer section */
   const select = useNavigate();
   const handleTo = (value) => {
-    select(`${value}`)
-  }
+    select(`${value}`);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -95,13 +95,13 @@ const Dashboard = () => {
                       <p>${item.current_price}</p>
                     </div>
                     <>
-                      {item.id == "bitcoin" && (
+                      {item.id === "bitcoin" && (
                         <MiniChart data={chartsData.bitcoin} />
                       )}
-                      {item.id == "ethereum" && (
+                      {item.id === "ethereum" && (
                         <MiniChart data={chartsData.ethereum} />
                       )}
-                      {item.id == "solana" && (
+                      {item.id === "solana" && (
                         <MiniChart data={chartsData.solana} />
                       )}
                     </>
@@ -115,50 +115,50 @@ const Dashboard = () => {
             <Outlet />
           </div>
           <div className="dash-form-box">
-        <div className="dash-form">
-          <select onChange={event => handleTo(event.target.value)}>
-            <option defaultValue >Select currency</option>
-            <option value="bitcoin">Bitcoin</option>
-            <option value="ethereum">Ethereum</option>
-            <option value="solana">Solana</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Receiver address"
-            name="addressTo"
-            onChange={handleChange}
-          />
-          <input
-            type="number"
-            placeholder="Value"
-            name="amount"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Keyword"
-            name="keyword"
-            onChange={handleChange}
-          />
-          <textarea
-            type="text"
-            className="message-input"
-            placeholder="message"
-            name="message"
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="dash-form-btn-box">
-          {currentAccount && (
-            <button type="button" onClick={handleSubmit}>
-              Transfer
-            </button>
-          )}
-          {!currentAccount && (
-            <button onClick={connectWallet}>Connect Wallet</button>
-          )}
-        </div>
-      </div>
+            <div className="dash-form">
+              <select onChange={(event) => handleTo(event.target.value)}>
+                <option defaultValue>Select currency</option>
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+                <option value="solana">Solana</option>
+              </select>
+              <input
+                type="text"
+                placeholder="Receiver address"
+                name="addressTo"
+                onChange={handleChange}
+              />
+              <input
+                type="number"
+                placeholder="Value"
+                name="amount"
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                placeholder="Keyword"
+                name="keyword"
+                onChange={handleChange}
+              />
+              <textarea
+                type="text"
+                className="message-input"
+                placeholder="message"
+                name="message"
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="dash-form-btn-box">
+              {currentAccount && (
+                <button type="button" onClick={handleSubmit}>
+                  Transfer
+                </button>
+              )}
+              {!currentAccount && (
+                <button onClick={connectWallet}>Connect Wallet</button>
+              )}
+            </div>
+          </div>
           <div className="make-transactions">
             <button onClick={connectWallet}>Make a transaction</button>
           </div>

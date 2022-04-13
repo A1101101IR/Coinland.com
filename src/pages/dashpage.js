@@ -1,4 +1,4 @@
-import Dashboard from "../components/dash";
+import Dashboard from "../components/dashboard";
 const Dashpage = () => {
   return (
     <div className="dash-container">
@@ -7,5 +7,3 @@ const Dashpage = () => {
   );
 };
 export default Dashpage;
-
-

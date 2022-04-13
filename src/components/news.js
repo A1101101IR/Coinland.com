@@ -18,7 +18,7 @@ const News = () => {
 
   return (
     <div className='news'>
-      {/* if there is data map each obj */}
+      {/* if there is data, map each obj */}
       {data && data.slice(0, 3).map((art) => (
         <div key={art.id} className='news-box'>
           {/* changes our template depending on index of object.  */}

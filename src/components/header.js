@@ -1,9 +1,9 @@
-import Dashboard from "./dash";
+import Dashboard from "./dashboard";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { TransactionContext } from "../contexts/TransactionContext";
 const Header = () => {
-  const { connectWallet, currentAccount } = useContext(TransactionContext);
+  const { currentAccount } = useContext(TransactionContext);
   return (
     <>
       {!currentAccount && (
